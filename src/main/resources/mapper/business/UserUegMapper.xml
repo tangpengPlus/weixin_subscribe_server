@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gency.subscribe.dao.business.UserUegMapper">
+  <resultMap id="BaseResultMap" type="com.gency.subscribe.model.business.UserUeg">
+    <id column="reg_id" jdbcType="BIGINT" property="regId" />
+    <result column="reg_time" jdbcType="TIMESTAMP" property="regTime" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="reg_name" jdbcType="VARCHAR" property="regName" />
+    <result column="reg_mark" jdbcType="VARCHAR" property="regMark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    reg_id, reg_time, phone, reg_name, reg_mark
+  </sql>
+  <insert id="insertSelective" parameterType="com.gency.subscribe.model.business.UserUeg">
+    insert into reg_user_reg
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="regId != null">
+        reg_id,
+      </if>
+      <if test="regTime != null">
+        reg_time,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="regName != null">
+        reg_name,
+      </if>
+      <if test="regMark != null">
+        reg_mark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="regId != null">
+        #{regId,jdbcType=BIGINT},
+      </if>
+      <if test="regTime != null">
+        #{regTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="regName != null">
+        #{regName,jdbcType=VARCHAR},
+      </if>
+      <if test="regMark != null">
+        #{regMark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.gency.subscribe.model.business.UserUeg">
+    update reg_user_reg
+    <set>
+      <if test="regTime != null">
+        reg_time = #{regTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="regName != null">
+        reg_name = #{regName,jdbcType=VARCHAR},
+      </if>
+      <if test="regMark != null">
+        reg_mark = #{regMark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where reg_id = #{regId,jdbcType=BIGINT}
+  </update>
+  <sql id="sql_columns">
+    reg_id,reg_time,phone,reg_name,reg_mark
+  </sql>
+  <sql id="sql_where">
+    <if test="item !=null "> 
+ <where>
+      <if test="null != item.regId and '' != item.regId">and reg_id = #{item.regId}</if>
+      <if test="null != item.regTime and '' != item.regTime">and reg_time = #{item.regTime}</if>
+      <if test="null != item.phone and '' != item.phone">and phone = #{item.phone}</if>
+      <if test="null != item.regName and '' != item.regName">and reg_name = #{item.regName}</if>
+      <if test="null != item.regMark and '' != item.regMark">and reg_mark = #{item.regMark}</if>
+	</where> 
+ </if>
+  </sql>
+  <select id="selectById" resultMap="BaseResultMap">
+    select <include refid="sql_columns" /> from reg_user_reg where reg_id = #{regId} and isDelete=0 
+  </select>
+  <select id="selectOne" resultMap="BaseResultMap">
+    select <include refid="sql_columns" /> from reg_user_reg <include refid="sql_where" /> limit 1
+  </select>
+  <select id="selectList" resultMap="BaseResultMap">
+    select <include refid="sql_columns" /> from reg_user_reg <include refid="sql_where" />  order by regId desc
+  </select>
+  <sql id="sql_save_columns">
+    insert into reg_user_reg(
+	  <if test="null != item.regTime"> reg_time</if>
+	  <if test="null != item.phone">, phone</if>
+	  <if test="null != item.regName">, reg_name</if>
+	  <if test="null != item.regMark">, reg_mark</if>
+	) values
+  </sql>
+  <sql id="sql_save_values">
+    (
+	  <if test="null != item.regTime"> #{item.regTime}</if>
+	  <if test="null != item.phone">, #{item.phone}</if>
+	  <if test="null != item.regName">, #{item.regName}</if>
+	  <if test="null != item.regMark">, #{item.regMark}</if>
+	)
+  </sql>
+  <insert id="save" keyProperty="item.regId" useGeneratedKeys="true">
+    <include refid="sql_save_columns" /><include refid="sql_save_values" />
+  </insert>
+  <insert id="batchSave">
+    <foreach collection="list" index="index" item="item" open="" separator=";" close="">
+	  <include refid="sql_save_columns" /><include refid="sql_save_values" />
+	</foreach>
+  </insert>
+  <sql id="sql_update">
+    update reg_user_reg
+ <set> 
+      <if test="null != item.regTime">reg_time = #{item.regTime},</if>
+      <if test="null != item.phone">phone = #{item.phone},</if>
+      <if test="null != item.regName">reg_name = #{item.regName},</if>
+      <if test="null != item.regMark">reg_mark = #{item.regMark},</if>
+</set>	where reg_id = #{item.regId}
+  </sql>
+  <update id="update">
+    <include refid="sql_update" />
+  </update>
+  <update id="batchUpdate">
+    <foreach collection="list" index="index" item="item" open="" separator=";" close="">
+	  <include refid="sql_update" />
+	</foreach>
+  </update>
+  <delete id="delArray">
+    delete from reg_user_reg where reg_id in
+	<foreach collection="array" index="index" item="item" open="(" separator="," close=")">#{item}</foreach>
+  </delete>
+  <delete id="delList">
+    delete from reg_user_reg where reg_id in
+	<foreach collection="list" index="index" item="item" open="(" separator="," close=")">#{item}</foreach>
+  </delete>
+  <delete id="delByCondition">
+     update reg_user_reg set isDelete=1 <include refid="sql_where" />
+  </delete>
+  <delete id="delById">
+     update reg_user_reg set isDelete=1  where reg_id =#{id} 
+  </delete>
+</mapper>

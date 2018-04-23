@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gency.subscribe.dao.business.SerUserBaseMapper">
+  <resultMap id="BaseResultMap" type="com.gency.subscribe.model.business.SerUserBase">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="tables_number" jdbcType="VARCHAR" property="tablesNumber" />
+    <result column="goods_id" jdbcType="BIGINT" property="goodsId" />
+    <result column="number" jdbcType="INTEGER" property="number" />
+    <result column="reg_id" jdbcType="BIGINT" property="regId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, create_time, tables_number, goods_id, number, reg_id
+  </sql>
+  <insert id="insertSelective" parameterType="com.gency.subscribe.model.business.SerUserBase">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into ser_user_base
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="tablesNumber != null">
+        tables_number,
+      </if>
+      <if test="goodsId != null">
+        goods_id,
+      </if>
+      <if test="number != null">
+        number,
+      </if>
+      <if test="regId != null">
+        reg_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tablesNumber != null">
+        #{tablesNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsId != null">
+        #{goodsId,jdbcType=BIGINT},
+      </if>
+      <if test="number != null">
+        #{number,jdbcType=INTEGER},
+      </if>
+      <if test="regId != null">
+        #{regId,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.gency.subscribe.model.business.SerUserBase">
+    update ser_user_base
+    <set>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tablesNumber != null">
+        tables_number = #{tablesNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsId != null">
+        goods_id = #{goodsId,jdbcType=BIGINT},
+      </if>
+      <if test="number != null">
+        number = #{number,jdbcType=INTEGER},
+      </if>
+      <if test="regId != null">
+        reg_id = #{regId,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <sql id="sql_columns">
+    id,create_time,tables_number,goods_id,number,reg_id
+  </sql>
+  <sql id="sql_where">
+    <if test="item !=null "> 
+ <where>
+      <if test="null != item.id and '' != item.id">and id = #{item.id}</if>
+      <if test="null != item.createTime and '' != item.createTime">and create_time = #{item.createTime}</if>
+      <if test="null != item.tablesNumber and '' != item.tablesNumber">and tables_number = #{item.tablesNumber}</if>
+      <if test="null != item.goodsId and '' != item.goodsId">and goods_id = #{item.goodsId}</if>
+      <if test="null != item.number">and number = #{item.number}</if>
+      <if test="null != item.regId and '' != item.regId">and reg_id = #{item.regId}</if>
+	</where> 
+ </if>
+  </sql>
+  <select id="selectById" resultMap="BaseResultMap">
+    select <include refid="sql_columns" /> from ser_user_base where id = #{id} and isDelete=0 
+  </select>
+  <select id="selectOne" resultMap="BaseResultMap">
+    select <include refid="sql_columns" /> from ser_user_base <include refid="sql_where" /> limit 1
+  </select>
+  <select id="selectList" resultMap="BaseResultMap">
+    select <include refid="sql_columns" /> from ser_user_base <include refid="sql_where" />  order by id desc
+  </select>
+  <sql id="sql_save_columns">
+    insert into ser_user_base(
+	  <if test="null != item.createTime"> create_time</if>
+	  <if test="null != item.tablesNumber">, tables_number</if>
+	  <if test="null != item.goodsId">, goods_id</if>
+	  <if test="null != item.number">, number</if>
+	  <if test="null != item.regId">, reg_id</if>
+	) values
+  </sql>
+  <sql id="sql_save_values">
+    (
+	  <if test="null != item.createTime"> #{item.createTime}</if>
+	  <if test="null != item.tablesNumber">, #{item.tablesNumber}</if>
+	  <if test="null != item.goodsId">, #{item.goodsId}</if>
+	  <if test="null != item.number">, #{item.number}</if>
+	  <if test="null != item.regId">, #{item.regId}</if>
+	)
+  </sql>
+  <insert id="save" keyProperty="item.id" useGeneratedKeys="true">
+    <include refid="sql_save_columns" /><include refid="sql_save_values" />
+  </insert>
+  <insert id="batchSave">
+    <foreach collection="list" index="index" item="item" open="" separator=";" close="">
+	  <include refid="sql_save_columns" /><include refid="sql_save_values" />
+	</foreach>
+  </insert>
+  <sql id="sql_update">
+    update ser_user_base
+ <set> 
+      <if test="null != item.createTime">create_time = #{item.createTime},</if>
+      <if test="null != item.tablesNumber">tables_number = #{item.tablesNumber},</if>
+      <if test="null != item.goodsId">goods_id = #{item.goodsId},</if>
+      <if test="null != item.number">number = #{item.number},</if>
+      <if test="null != item.regId">reg_id = #{item.regId},</if>
+</set>	where id = #{item.id}
+  </sql>
+  <update id="update">
+    <include refid="sql_update" />
+  </update>
+  <update id="batchUpdate">
+    <foreach collection="list" index="index" item="item" open="" separator=";" close="">
+	  <include refid="sql_update" />
+	</foreach>
+  </update>
+  <delete id="delArray">
+    delete from ser_user_base where id in
+	<foreach collection="array" index="index" item="item" open="(" separator="," close=")">#{item}</foreach>
+  </delete>
+  <delete id="delList">
+    delete from ser_user_base where id in
+	<foreach collection="list" index="index" item="item" open="(" separator="," close=")">#{item}</foreach>
+  </delete>
+  <delete id="delByCondition">
+     update ser_user_base set isDelete=1 <include refid="sql_where" />
+  </delete>
+  <delete id="delById">
+     update ser_user_base set isDelete=1  where id =#{id} 
+  </delete>
+</mapper>

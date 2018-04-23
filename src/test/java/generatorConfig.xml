@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>  
+    <context id="createMysqlTableXml"  targetRuntime="MyBatis3">  
+    	<property name="javaFileEncoding" value="UTF-8"/>
+    	<plugin type="com.gency.subscribe.core.plug.generator.GenPlugin">
+			<property name="mappers" value="com.gency.subscribe.dao.base.BaseMapper" />
+		</plugin>
+    	<commentGenerator>
+			<!-- 取消生成注释 -->
+			<property name="suppressAllComments" value="true"/>
+		</commentGenerator>   
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/subscribe_system?characterEncoding=utf8" userId="root" password="admin">  
+          <!-- JavaBean 文件生成字段注释 -->
+          <property name="useInformationSchema" value="true"></property>
+        </jdbcConnection>  
+        <javaTypeResolver>  
+            <property name="forceBigDecimals" value="false"/>  
+        </javaTypeResolver>  
+        <javaModelGenerator targetPackage="com.gency.subscribe.model.business" targetProject="src/main/java">  
+            <property name="enableSubPackages" value="true"/>  
+            <property name="trimStrings" value="true"/>  
+        </javaModelGenerator>  
+         <sqlMapGenerator targetPackage="mapper.business" targetProject="src/main/resources">  
+            <property name="enableSubPackages" value="true"/>  
+        </sqlMapGenerator>  
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.gency.subscribe.dao.business" targetProject="src/main/java">  
+            <property name="enableSubPackages" value="true"/>  
+        </javaClientGenerator>
+       <table tableName="tra_order_base" domainObjectName="TraOrderBase" enableCountByExample="false" enableUpdateByExample="false"
+         enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+         <property name="rootClass" value="com.gency.subscribe.model.base.BaseModel" />
+          <generatedKey column="id" sqlStatement="MySql"  identity="true"/>
+         </table>
+        <!--  <table tableName="manage_authority" domainObjectName="ManageAuthority" enableCountByExample="false" enableUpdateByExample="false"
+         enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+         <property name="rootClass" value="com.hpf.manage.model.base.BaseModel" />
+         </table>
+         <table tableName="manage_menu" domainObjectName="ManageMenu" enableCountByExample="false" enableUpdateByExample="false"
+         enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+         <property name="rootClass" value="com.hpf.manage.model.base.BaseModel" />
+         </table>
+         <table tableName="manage_option_log" domainObjectName="ManageOptionLog" enableCountByExample="false" enableUpdateByExample="false"
+         enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+         <property name="rootClass" value="com.hpf.manage.model.base.BaseModel" />
+         </table> -->
+         <!-- <table tableName="manage_role" domainObjectName="ManageRole" enableCountByExample="false" enableUpdateByExample="false"
+         enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+         <property name="rootClass" value="com.hpf.manage.model.base.BaseModel" />
+         </table> -->
+         
+          <!-- 父表配置-->
+       <!--  <table tableName="manage_admin_role"  domainObjectName="AdminRole"
+        	enableCountByExample="false" enableUpdateByExample="false"
+         enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <generatedKey column="id" sqlStatement="MySql"  identity="true"/>
+            <oneToMany mappingTable="manage_admin" column="id" joinColumn="adminId"/>
+            <oneToMany mappingTable="manage_role" column="id" joinColumn="roleId"/>
+        </table> -->
+        <!-- 子表1配置-->
+       <!--  <table tableName="manage_admin" domainObjectName="ManageAdmin">
+            <generatedKey column="id" sqlStatement="MySql" identity="true" />
+         </table> -->
+         <!-- 子表2配置-->
+       <!--  <table tableName="manage_role" domainObjectName="ManageRole">
+            <generatedKey column="id" sqlStatement="MySql" identity="true" />
+         </table> -->
+         
+         
+         
+    </context>  
+</generatorConfiguration>  

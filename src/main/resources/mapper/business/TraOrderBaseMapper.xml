@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gency.subscribe.dao.business.TraOrderBaseMapper">
+  <resultMap id="BaseResultMap" type="com.gency.subscribe.model.business.TraOrderBase">
+    <id column="order_no" jdbcType="BIGINT" property="orderNo" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="reg_id" jdbcType="BIGINT" property="regId" />
+    <result column="state" jdbcType="TINYINT" property="state" />
+    <result column="license_plate" jdbcType="VARCHAR" property="licensePlate" />
+    <result column="number_of_people" jdbcType="INTEGER" property="numberOfPeople" />
+    <result column="date_of_visit" jdbcType="VARCHAR" property="dateOfVisit" />
+    <result column="morning_or_afternoon" jdbcType="TINYINT" property="morningOrAfternoon" />
+    <result column="user_phone" jdbcType="VARCHAR" property="userPhone" />
+    <result column="adviser_id" jdbcType="BIGINT" property="adviserId" />
+    <result column="adviser_phone" jdbcType="VARCHAR" property="adviserPhone" />
+    <result column="mark" jdbcType="VARCHAR" property="mark" />
+    <result column="confirm_time" jdbcType="TIMESTAMP" property="confirmTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    order_no, create_time, reg_id, state, license_plate, number_of_people, date_of_visit, 
+    morning_or_afternoon, user_phone, adviser_id, adviser_phone, mark, confirm_time
+  </sql>
+  <insert id="insertSelective" parameterType="com.gency.subscribe.model.business.TraOrderBase">
+    insert into tra_order_base
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="orderNo != null">
+        order_no,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="regId != null">
+        reg_id,
+      </if>
+      <if test="state != null">
+        state,
+      </if>
+      <if test="licensePlate != null">
+        license_plate,
+      </if>
+      <if test="numberOfPeople != null">
+        number_of_people,
+      </if>
+      <if test="dateOfVisit != null">
+        date_of_visit,
+      </if>
+      <if test="morningOrAfternoon != null">
+        morning_or_afternoon,
+      </if>
+      <if test="userPhone != null">
+        user_phone,
+      </if>
+      <if test="adviserId != null">
+        adviser_id,
+      </if>
+      <if test="adviserPhone != null">
+        adviser_phone,
+      </if>
+      <if test="mark != null">
+        mark,
+      </if>
+      <if test="confirmTime != null">
+        confirm_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="orderNo != null">
+        #{orderNo,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="regId != null">
+        #{regId,jdbcType=BIGINT},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=TINYINT},
+      </if>
+      <if test="licensePlate != null">
+        #{licensePlate,jdbcType=VARCHAR},
+      </if>
+      <if test="numberOfPeople != null">
+        #{numberOfPeople,jdbcType=INTEGER},
+      </if>
+      <if test="dateOfVisit != null">
+        #{dateOfVisit,jdbcType=VARCHAR},
+      </if>
+      <if test="morningOrAfternoon != null">
+        #{morningOrAfternoon,jdbcType=TINYINT},
+      </if>
+      <if test="userPhone != null">
+        #{userPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="adviserId != null">
+        #{adviserId,jdbcType=BIGINT},
+      </if>
+      <if test="adviserPhone != null">
+        #{adviserPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="mark != null">
+        #{mark,jdbcType=VARCHAR},
+      </if>
+      <if test="confirmTime != null">
+        #{confirmTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.gency.subscribe.model.business.TraOrderBase">
+    update tra_order_base
+    <set>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="regId != null">
+        reg_id = #{regId,jdbcType=BIGINT},
+      </if>
+      <if test="state != null">
+        state = #{state,jdbcType=TINYINT},
+      </if>
+      <if test="licensePlate != null">
+        license_plate = #{licensePlate,jdbcType=VARCHAR},
+      </if>
+      <if test="numberOfPeople != null">
+        number_of_people = #{numberOfPeople,jdbcType=INTEGER},
+      </if>
+      <if test="dateOfVisit != null">
+        date_of_visit = #{dateOfVisit,jdbcType=VARCHAR},
+      </if>
+      <if test="morningOrAfternoon != null">
+        morning_or_afternoon = #{morningOrAfternoon,jdbcType=TINYINT},
+      </if>
+      <if test="userPhone != null">
+        user_phone = #{userPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="adviserId != null">
+        adviser_id = #{adviserId,jdbcType=BIGINT},
+      </if>
+      <if test="adviserPhone != null">
+        adviser_phone = #{adviserPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="mark != null">
+        mark = #{mark,jdbcType=VARCHAR},
+      </if>
+      <if test="confirmTime != null">
+        confirm_time = #{confirmTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where order_no = #{orderNo,jdbcType=BIGINT}
+  </update>
+  <sql id="sql_columns">
+    order_no,create_time,reg_id,state,license_plate,number_of_people,date_of_visit,morning_or_afternoon,user_phone,adviser_id,adviser_phone,mark,confirm_time
+  </sql>
+  <sql id="sql_where">
+    <if test="item !=null "> 
+ <where>
+      <if test="null != item.orderNo and '' != item.orderNo">and order_no = #{item.orderNo}</if>
+      <if test="null != item.createTime and '' != item.createTime">and create_time = #{item.createTime}</if>
+      <if test="null != item.regId and '' != item.regId">and reg_id = #{item.regId}</if>
+      <if test="null != item.state and '' != item.state">and state = #{item.state}</if>
+      <if test="null != item.licensePlate and '' != item.licensePlate">and license_plate = #{item.licensePlate}</if>
+      <if test="null != item.numberOfPeople">and number_of_people = #{item.numberOfPeople}</if>
+      <if test="null != item.dateOfVisit and '' != item.dateOfVisit">and date_of_visit = #{item.dateOfVisit}</if>
+      <if test="null != item.morningOrAfternoon and '' != item.morningOrAfternoon">and morning_or_afternoon = #{item.morningOrAfternoon}</if>
+      <if test="null != item.userPhone and '' != item.userPhone">and user_phone = #{item.userPhone}</if>
+      <if test="null != item.adviserId and '' != item.adviserId">and adviser_id = #{item.adviserId}</if>
+      <if test="null != item.adviserPhone and '' != item.adviserPhone">and adviser_phone = #{item.adviserPhone}</if>
+      <if test="null != item.mark and '' != item.mark">and mark = #{item.mark}</if>
+      <if test="null != item.confirmTime and '' != item.confirmTime">and confirm_time = #{item.confirmTime}</if>
+	</where> 
+ </if>
+  </sql>
+  <select id="selectById" resultMap="BaseResultMap">
+    select <include refid="sql_columns" /> from tra_order_base where order_no = #{orderNo} and isDelete=0 
+  </select>
+  <select id="selectOne" resultMap="BaseResultMap">
+    select <include refid="sql_columns" /> from tra_order_base <include refid="sql_where" /> limit 1
+  </select>
+  <select id="selectList" resultMap="BaseResultMap">
+    select <include refid="sql_columns" /> from tra_order_base <include refid="sql_where" />  order by orderNo desc
+  </select>
+  <sql id="sql_save_columns">
+    insert into tra_order_base(
+	  <if test="null != item.createTime"> create_time</if>
+	  <if test="null != item.regId">, reg_id</if>
+	  <if test="null != item.state">, state</if>
+	  <if test="null != item.licensePlate">, license_plate</if>
+	  <if test="null != item.numberOfPeople">, number_of_people</if>
+	  <if test="null != item.dateOfVisit">, date_of_visit</if>
+	  <if test="null != item.morningOrAfternoon">, morning_or_afternoon</if>
+	  <if test="null != item.userPhone">, user_phone</if>
+	  <if test="null != item.adviserId">, adviser_id</if>
+	  <if test="null != item.adviserPhone">, adviser_phone</if>
+	  <if test="null != item.mark">, mark</if>
+	  <if test="null != item.confirmTime">, confirm_time</if>
+	) values
+  </sql>
+  <sql id="sql_save_values">
+    (
+	  <if test="null != item.createTime"> #{item.createTime}</if>
+	  <if test="null != item.regId">, #{item.regId}</if>
+	  <if test="null != item.state">, #{item.state}</if>
+	  <if test="null != item.licensePlate">, #{item.licensePlate}</if>
+	  <if test="null != item.numberOfPeople">, #{item.numberOfPeople}</if>
+	  <if test="null != item.dateOfVisit">, #{item.dateOfVisit}</if>
+	  <if test="null != item.morningOrAfternoon">, #{item.morningOrAfternoon}</if>
+	  <if test="null != item.userPhone">, #{item.userPhone}</if>
+	  <if test="null != item.adviserId">, #{item.adviserId}</if>
+	  <if test="null != item.adviserPhone">, #{item.adviserPhone}</if>
+	  <if test="null != item.mark">, #{item.mark}</if>
+	  <if test="null != item.confirmTime">, #{item.confirmTime}</if>
+	)
+  </sql>
+  <insert id="save" keyProperty="item.orderNo" useGeneratedKeys="true">
+    <include refid="sql_save_columns" /><include refid="sql_save_values" />
+  </insert>
+  <insert id="batchSave">
+    <foreach collection="list" index="index" item="item" open="" separator=";" close="">
+	  <include refid="sql_save_columns" /><include refid="sql_save_values" />
+	</foreach>
+  </insert>
+  <sql id="sql_update">
+    update tra_order_base
+ <set> 
+      <if test="null != item.createTime">create_time = #{item.createTime},</if>
+      <if test="null != item.regId">reg_id = #{item.regId},</if>
+      <if test="null != item.state">state = #{item.state},</if>
+      <if test="null != item.licensePlate">license_plate = #{item.licensePlate},</if>
+      <if test="null != item.numberOfPeople">number_of_people = #{item.numberOfPeople},</if>
+      <if test="null != item.dateOfVisit">date_of_visit = #{item.dateOfVisit},</if>
+      <if test="null != item.morningOrAfternoon">morning_or_afternoon = #{item.morningOrAfternoon},</if>
+      <if test="null != item.userPhone">user_phone = #{item.userPhone},</if>
+      <if test="null != item.adviserId">adviser_id = #{item.adviserId},</if>
+      <if test="null != item.adviserPhone">adviser_phone = #{item.adviserPhone},</if>
+      <if test="null != item.mark">mark = #{item.mark},</if>
+      <if test="null != item.confirmTime">confirm_time = #{item.confirmTime},</if>
+</set>	where order_no = #{item.orderNo}
+  </sql>
+  <update id="update">
+    <include refid="sql_update" />
+  </update>
+  <update id="batchUpdate">
+    <foreach collection="list" index="index" item="item" open="" separator=";" close="">
+	  <include refid="sql_update" />
+	</foreach>
+  </update>
+  <delete id="delArray">
+    delete from tra_order_base where order_no in
+	<foreach collection="array" index="index" item="item" open="(" separator="," close=")">#{item}</foreach>
+  </delete>
+  <delete id="delList">
+    delete from tra_order_base where order_no in
+	<foreach collection="list" index="index" item="item" open="(" separator="," close=")">#{item}</foreach>
+  </delete>
+  <delete id="delByCondition">
+     update tra_order_base set isDelete=1 <include refid="sql_where" />
+  </delete>
+  <delete id="delById">
+     update tra_order_base set isDelete=1  where order_no =#{id} 
+  </delete>
+</mapper>
