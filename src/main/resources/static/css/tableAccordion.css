@@ -1,0 +1,25 @@
+/**
+ * Created by lihuiyang on 2017/9/5 0005.
+ * table ÊÖ·çÇÙÕÛµþ
+ *
+ */
+.table_level_01 td:first-of-type{  text-align: left;  }
+.table_level_02 td:first-of-type{  text-align: center;  }
+.table_level_03 td:first-of-type{  text-align: right;  }
+
+.tableAcc tbody tr:hover td:first-of-type{
+    border-left-color: #ff6c60;
+    border-left-width: 2px;
+}
+.table_level_02,
+.table_level_03{
+    display: none;
+}
+.table_level_01,
+.table_level_02,
+.table_level_03{
+    cursor: pointer;
+    position: relative;
+}
+.table_level_02>td{  background: rgba(0,0,0,0.05);  }
+.table_level_03>td{  background: rgba(0,0,0,0.1);  }

@@ -1,0 +1,76 @@
+server:
+  port: 8001
+  display-name: weixin_subscribe_server
+spring:  
+  profiles:  
+    active: test
+################################################测试环境配置#######################################################
+---                                                       
+spring:
+  profiles: test
+  explorationModel: false  ##开发模式
+  aop:
+    proxy-target-class: true
+  resources:
+    static-locations:
+      - classpath:/static/  
+##########视图模板配置###############################################################################################
+  freemarker:
+    cache: true
+    template-loader-path:
+      - classpath:/templates/
+    allow-request-override: false
+    allow-session-override: false
+    check-template-location: true
+    charset: UTF-8
+    enabled: true
+    content-type: text/html
+    expose-request-attributes: true
+    expose-session-attributes: true
+    expose-spring-macro-helpers: true
+    prefer-file-system-access: true
+    suffix: .ftl
+    request-context-attribute: request
+    settings:
+      number_format: 0.######
+      boolean_format: true,false
+      datetime_format: yyyy-MM-dd HH:mm:ss
+      date_format: yyyy-MM-dd
+      time_format: HH:mm:ss
+      object_wrapper: freemarker.ext.beans.BeansWrapper
+      whitespace_stripping: true
+      tag_syntax: square_bracket
+      template_update_delay: 0
+      classic_compatible: true
+##########http配置########################
+  http: 
+   encoding:
+      charset: UTF-8
+##########json配置########################    
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+###########数据源配置#######################
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/subscribe_system?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&autoReconnect=true&failOverReadOnly=false
+    username: root
+    password: admin
+###########缓存配置#######################    
+  cache:
+    type: ehcache
+    ehcache: 
+      config: classpath:ehcache-shiro.xml
+logging:
+  level:
+    root: INFO
+    com:
+     hpf:
+      manage:
+       dao: DEBUG
+      service: DEBUG
+  file: ./logs/weixin_subscribe_server.log
+  pattern:
+    file: '%d{yyyy/MM/dd-HH:mm} [%thread] %-5level %logger- %msg%n'
+    console: '%d{yyyy/MM/dd-HH:mm:ss} [%thread] %-5level %logger- %msg%n'
+   

@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gency.subscribe.dao.sys.ManageAuthorityMapper">
+  <resultMap id="BaseResultMap" type="com.gency.subscribe.model.system.ManageAuthority">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="number" jdbcType="VARCHAR" property="number" />
+    <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="createadmin" jdbcType="INTEGER" property="createadmin" />
+    <result column="authorityname" jdbcType="VARCHAR" property="authorityname" />
+    <result column="authorityurl" jdbcType="VARCHAR" property="authorityurl" />
+    <result column="authoritydescribe" jdbcType="VARCHAR" property="authoritydescribe" />
+    <result column="authoritylogstate" jdbcType="INTEGER" property="authoritylogstate" />
+    <result column="menuId" jdbcType="INTEGER" property="menuid" />
+    <result column="isDelete" jdbcType="INTEGER" property="isdelete" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, number, createtime, createadmin, authorityname, authorityurl, authoritydescribe, 
+    authoritylogstate, menuId, isDelete
+  </sql>
+  <insert id="insertSelective" parameterType="com.gency.subscribe.model.system.ManageAuthority">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into manage_authority
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="number != null">
+        number,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="createadmin != null">
+        createadmin,
+      </if>
+      <if test="authorityname != null">
+        authorityname,
+      </if>
+      <if test="authorityurl != null">
+        authorityurl,
+      </if>
+      <if test="authoritydescribe != null">
+        authoritydescribe,
+      </if>
+      <if test="authoritylogstate != null">
+        authoritylogstate,
+      </if>
+      <if test="menuid != null">
+        menuId,
+      </if>
+      <if test="isdelete != null">
+        isDelete,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="number != null">
+        #{number,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createadmin != null">
+        #{createadmin,jdbcType=INTEGER},
+      </if>
+      <if test="authorityname != null">
+        #{authorityname,jdbcType=VARCHAR},
+      </if>
+      <if test="authorityurl != null">
+        #{authorityurl,jdbcType=VARCHAR},
+      </if>
+      <if test="authoritydescribe != null">
+        #{authoritydescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="authoritylogstate != null">
+        #{authoritylogstate,jdbcType=INTEGER},
+      </if>
+      <if test="menuid != null">
+        #{menuid,jdbcType=INTEGER},
+      </if>
+      <if test="isdelete != null">
+        #{isdelete,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.gency.subscribe.model.system.ManageAuthority">
+    update manage_authority
+    <set>
+      <if test="number != null">
+        number = #{number,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createadmin != null">
+        createadmin = #{createadmin,jdbcType=INTEGER},
+      </if>
+      <if test="authorityname != null">
+        authorityname = #{authorityname,jdbcType=VARCHAR},
+      </if>
+      <if test="authorityurl != null">
+        authorityurl = #{authorityurl,jdbcType=VARCHAR},
+      </if>
+      <if test="authoritydescribe != null">
+        authoritydescribe = #{authoritydescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="authoritylogstate != null">
+        authoritylogstate = #{authoritylogstate,jdbcType=INTEGER},
+      </if>
+      <if test="menuid != null">
+        menuId = #{menuid,jdbcType=INTEGER},
+      </if>
+      <if test="isdelete != null">
+        isDelete = #{isdelete,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <sql id="sql_columns">
+    id,number,createtime,createadmin,authorityname,authorityurl,authoritydescribe,authoritylogstate,menuId,isDelete
+  </sql>
+  <sql id="sql_where">
+    <if test="item !=null "> 
+ <where>
+      <if test="null != item.id">and id = #{item.id}</if>
+      <if test="null != item.number and '' != item.number">and number = #{item.number}</if>
+      <if test="null != item.createtime and '' != item.createtime">and createtime = #{item.createtime}</if>
+      <if test="null != item.createadmin">and createadmin = #{item.createadmin}</if>
+      <if test="null != item.authorityname and '' != item.authorityname">and authorityname = #{item.authorityname}</if>
+      <if test="null != item.authorityurl and '' != item.authorityurl">and authorityurl = #{item.authorityurl}</if>
+      <if test="null != item.authoritydescribe and '' != item.authoritydescribe">and authoritydescribe = #{item.authoritydescribe}</if>
+      <if test="null != item.authoritylogstate">and authoritylogstate = #{item.authoritylogstate}</if>
+      <if test="null != item.menuid">and menuId = #{item.menuid}</if>
+      <if test="null != item.isdelete">and isDelete = #{item.isdelete}</if>
+	</where> 
+ </if>
+  </sql>
+  <select id="selectById" resultMap="BaseResultMap">
+    select <include refid="sql_columns" /> from manage_authority where id = #{id} and isDelete=0 
+  </select>
+  <select id="selectOne" resultMap="BaseResultMap">
+    select <include refid="sql_columns" /> from manage_authority <include refid="sql_where" /> limit 1
+  </select>
+  <select id="selectList" resultMap="BaseResultMap">
+    select <include refid="sql_columns" /> from manage_authority <include refid="sql_where" />  order by id desc
+  </select>
+   <!-- 查询管理员的所有权限信息 -->
+  <select id="selectManageAuthorityByAdminId" resultMap="BaseResultMap">
+  select distinct ma.id,ma.number,ma.createtime,ma.createadmin,ma.authorityname,ma.authorityurl,
+  ma.authoritydescribe,ma.authoritylogstate,ma.menuId,ma.isDelete
+  from manage_authority ma left join manage_role_author mra on mra.authorId=ma.id
+  left join manage_role_admin mras on mras.roleId=mra.roleId where mras.roleId=#{roleId}
+  and ma.isDelete=0 order by ma.id desc
+  </select>
+  
+  <select id="selectManageAuthorityByAdminId2" resultMap="BaseResultMap">
+  select distinct ma.id,ma.number,ma.createtime,ma.createadmin,ma.authorityname,ma.authorityurl,
+  ma.authoritydescribe,ma.authoritylogstate,ma.menuId,ma.isDelete
+  from manage_authority ma left join manage_role_author mra on mra.authorId=ma.id
+  left join manage_role_admin mras on mras.roleId=mra.roleId where mras.adminId=#{adminId}
+  and ma.isDelete=0 order by ma.id desc
+  </select>
+  <sql id="sql_save_columns">
+    insert into manage_authority(
+	  <if test="null != item.number"> number</if>
+	  <if test="null != item.createtime">, createtime</if>
+	  <if test="null != item.createadmin">, createadmin</if>
+	  <if test="null != item.authorityname">, authorityname</if>
+	  <if test="null != item.authorityurl">, authorityurl</if>
+	  <if test="null != item.authoritydescribe">, authoritydescribe</if>
+	  <if test="null != item.authoritylogstate">, authoritylogstate</if>
+	  <if test="null != item.menuid">, menuId</if>
+	  <if test="null != item.isdelete">, isDelete</if>
+	) values
+  </sql>
+  <sql id="sql_save_values">
+    (
+	  <if test="null != item.number"> #{item.number}</if>
+	  <if test="null != item.createtime">, #{item.createtime}</if>
+	  <if test="null != item.createadmin">, #{item.createadmin}</if>
+	  <if test="null != item.authorityname">, #{item.authorityname}</if>
+	  <if test="null != item.authorityurl">, #{item.authorityurl}</if>
+	  <if test="null != item.authoritydescribe">, #{item.authoritydescribe}</if>
+	  <if test="null != item.authoritylogstate">, #{item.authoritylogstate}</if>
+	  <if test="null != item.menuid">, #{item.menuid}</if>
+	  <if test="null != item.isdelete">, #{item.isdelete}</if>
+	)
+  </sql>
+  <insert id="save" keyProperty="item.id" useGeneratedKeys="true">
+    <include refid="sql_save_columns" /><include refid="sql_save_values" />
+  </insert>
+  <insert id="batchSave">
+    <foreach collection="list" index="index" item="item" open="" separator=";" close="">
+	  <include refid="sql_save_columns" /><include refid="sql_save_values" />
+	</foreach>
+  </insert>
+  <sql id="sql_update">
+    update manage_authority
+ <set> 
+      <if test="null != item.number">number = #{item.number},</if>
+      <if test="null != item.createtime">createtime = #{item.createtime},</if>
+      <if test="null != item.createadmin">createadmin = #{item.createadmin},</if>
+      <if test="null != item.authorityname">authorityname = #{item.authorityname},</if>
+      <if test="null != item.authorityurl">authorityurl = #{item.authorityurl},</if>
+      <if test="null != item.authoritydescribe">authoritydescribe = #{item.authoritydescribe},</if>
+      <if test="null != item.authoritylogstate">authoritylogstate = #{item.authoritylogstate},</if>
+      <if test="null != item.menuid">menuId = #{item.menuid},</if>
+      <if test="null != item.isdelete">isDelete = #{item.isdelete},</if>
+</set>	where id = #{item.id}
+  </sql>
+  <update id="update">
+    <include refid="sql_update" />
+  </update>
+  <update id="batchUpdate">
+    <foreach collection="list" index="index" item="item" open="" separator=";" close="">
+	  <include refid="sql_update" />
+	</foreach>
+  </update>
+  <delete id="delArray">
+    delete from manage_authority where id in
+	<foreach collection="array" index="index" item="item" open="(" separator="," close=")">#{item}</foreach>
+  </delete>
+  <delete id="delList">
+    delete from manage_authority where id in
+	<foreach collection="list" index="index" item="item" open="(" separator="," close=")">#{item}</foreach>
+  </delete>
+  <delete id="delByCondition">
+     update manage_authority set isDelete=1 <include refid="sql_where" />
+  </delete>
+  <delete id="delById">
+     update manage_authority set isDelete=1  where id =#{id} 
+  </delete>
+</mapper>

@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gency.subscribe.dao.sys.ManageMenuMapper">
+  <resultMap id="BaseResultMap" type="com.gency.subscribe.model.system.ManageMenu">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="number" jdbcType="VARCHAR" property="number" />
+    <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="createadmin" jdbcType="VARCHAR" property="createadmin" />
+    <result column="describe" jdbcType="VARCHAR" property="describe" />
+    <result column="grade" jdbcType="INTEGER" property="grade" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="superior" jdbcType="INTEGER" property="superior" />
+    <result column="sort" jdbcType="INTEGER" property="sort" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="icopath" jdbcType="VARCHAR" property="icopath" />
+    <result column="relationmenu" jdbcType="INTEGER" property="relationmenu" />
+    <result column="isDelete" jdbcType="INTEGER" property="isdelete" />
+    <result column="autoAttach" jdbcType="INTEGER" property="autoattach" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, number, createtime, createadmin, manage_menu.describe, grade, type, superior, sort, url, 
+    manage_menu.name, icopath, relationmenu, isDelete, autoAttach
+  </sql>
+  <insert id="insertSelective" parameterType="com.gency.subscribe.model.system.ManageMenu">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into manage_menu
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="number != null">
+        number,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="createadmin != null">
+        createadmin,
+      </if>
+      <if test="describe != null">
+        manage_menu.describe,
+      </if>
+      <if test="grade != null">
+        grade,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="superior != null">
+        superior,
+      </if>
+      <if test="sort != null">
+        sort,
+      </if>
+      <if test="url != null">
+        url,
+      </if>
+      <if test="name != null">
+        manage_menu.name,
+      </if>
+      <if test="icopath != null">
+        icopath,
+      </if>
+      <if test="relationmenu != null">
+        relationmenu,
+      </if>
+      <if test="isdelete != null">
+        isDelete,
+      </if>
+      <if test="autoattach != null">
+        autoAttach,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="number != null">
+        #{number,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createadmin != null">
+        #{createadmin,jdbcType=VARCHAR},
+      </if>
+      <if test="describe != null">
+        #{describe,jdbcType=VARCHAR},
+      </if>
+      <if test="grade != null">
+        #{grade,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="superior != null">
+        #{superior,jdbcType=INTEGER},
+      </if>
+      <if test="sort != null">
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="url != null">
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="icopath != null">
+        #{icopath,jdbcType=VARCHAR},
+      </if>
+      <if test="relationmenu != null">
+        #{relationmenu,jdbcType=INTEGER},
+      </if>
+      <if test="isdelete != null">
+        #{isdelete,jdbcType=INTEGER},
+      </if>
+      <if test="autoattach != null">
+        #{autoattach,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.gency.subscribe.model.system.ManageMenu">
+    update manage_menu
+    <set>
+      <if test="number != null">
+        number = #{number,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createadmin != null">
+        createadmin = #{createadmin,jdbcType=VARCHAR},
+      </if>
+      <if test="describe != null">
+        manage_menu.describe = #{describe,jdbcType=VARCHAR},
+      </if>
+      <if test="grade != null">
+        grade = #{grade,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="superior != null">
+        superior = #{superior,jdbcType=INTEGER},
+      </if>
+      <if test="sort != null">
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="url != null">
+        url = #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        manage_menu.name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="icopath != null">
+        icopath = #{icopath,jdbcType=VARCHAR},
+      </if>
+      <if test="relationmenu != null">
+        relationmenu = #{relationmenu,jdbcType=INTEGER},
+      </if>
+      <if test="isdelete != null">
+        isDelete = #{isdelete,jdbcType=INTEGER},
+      </if>
+      <if test="autoattach != null">
+        autoAttach = #{autoattach,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <sql id="sql_columns">
+    id,number,createtime,createadmin,manage_menu.describe,grade,type,superior,sort,url,manage_menu.name,icopath,relationmenu,isDelete,autoAttach
+  </sql>
+  <sql id="sql_where">
+  <if test="item !=null"> 
+    <where>
+      <if test="null != item.id">and id = #{item.id}</if>
+      <if test="null != item.number and '' != item.number">and number = #{item.number}</if>
+      <if test="null != item.createtime and '' != item.createtime">and createtime = #{item.createtime}</if>
+      <if test="null != item.createadmin and '' != item.createadmin">and createadmin = #{item.createadmin}</if>
+      <if test="null != item.describe and '' != item.describe">and manage_menu.describe = #{item.describe}</if>
+      <if test="null != item.grade">and grade = #{item.grade}</if>
+      <if test="null != item.type">and type = #{item.type}</if>
+      <if test="null != item.superior">and superior = #{item.superior}</if>
+      <if test="null != item.sort">and sort = #{item.sort}</if>
+      <if test="null != item.url and '' != item.url">and url = #{item.url}</if>
+      <if test="null != item.name and '' != item.name">and manage_menu.name = #{item.name}</if>
+      <if test="null != item.icopath and '' != item.icopath">and icopath = #{item.icopath}</if>
+      <if test="null != item.relationmenu">and relationmenu = #{item.relationmenu}</if>
+      <if test="null != item.isdelete">and isDelete = #{item.isdelete}</if>
+      <if test="null != item.autoattach">and autoAttach = #{item.autoattach}</if>
+	</where>
+	</if>
+  </sql>
+  <select id="selectById" resultMap="BaseResultMap">
+    select <include refid="sql_columns" /> from manage_menu where id = #{id} and isDelete=0 
+  </select>
+  <select id="selectOne" resultMap="BaseResultMap">
+    select <include refid="sql_columns" /> from manage_menu <include refid="sql_where" /> limit 1
+  </select>
+  <select id="selectList" resultMap="BaseResultMap">
+    select <include refid="sql_columns" /> from manage_menu <include refid="sql_where" />order by sort asc
+  </select>
+  <select id="selectListNoCondition" resultMap="BaseResultMap">
+    select <include refid="sql_columns" /> from manage_menu order by id desc
+  </select>
+  <select id="selectCurrYLoginAdminMenu" resultMap="BaseResultMap">
+   select distinct  mm.id,mm.number,mm.createtime,mm.createadmin,mm.describe,mm.grade,
+   mm.type,mm.superior,mm.sort,mm.url,mm.name,mm.icopath,mm.relationmenu,mm.isDelete,mm.autoAttach
+   from manage_menu mm left join manage_role_menu mrm on mm.id=mrm.menuId left join manage_role_admin
+   mra on mra.roleId=mrm.roleId where mra.roleId=#{roleId} and mm.isDelete=0 order by mm.sort asc
+  </select>
+  <select id="selectCurrYLoginAdminMenu2" resultMap="BaseResultMap">
+   select distinct  mm.id,mm.number,mm.createtime,mm.createadmin,mm.describe,mm.grade,
+   mm.type,mm.superior,mm.sort,mm.url,mm.name,mm.icopath,mm.relationmenu,mm.isDelete,mm.autoAttach
+   from manage_menu mm left join manage_role_menu mrm on mm.id=mrm.menuId left join manage_role_admin
+   mra on mra.roleId=mrm.roleId where mra.adminId=#{adminId} and mm.isDelete=0 order by mm.sort asc
+  </select>
+  
+  <sql id="sql_save_columns">
+    insert into manage_menu(
+	  <if test="null != item.number"> number</if>
+	  <if test="null != item.createtime">, createtime</if>
+	  <if test="null != item.createadmin">, createadmin</if>
+	  <if test="null != item.describe">, manage_menu.describe</if>
+	  <if test="null != item.grade">, grade</if>
+	  <if test="null != item.type">, type</if>
+	  <if test="null != item.superior">, superior</if>
+	  <if test="null != item.sort">, sort</if>
+	  <if test="null != item.url">, url</if>
+	  <if test="null != item.name">, manage_menu.name</if>
+	  <if test="null != item.icopath">, icopath</if>
+	  <if test="null != item.relationmenu">, relationmenu</if>
+	  <if test="null != item.isdelete">, isDelete</if>
+	  <if test="null != item.autoattach">, autoAttach</if>
+	) values
+  </sql>
+  <sql id="sql_save_values">
+    (
+	  <if test="null != item.number"> #{item.number}</if>
+	  <if test="null != item.createtime">, #{item.createtime}</if>
+	  <if test="null != item.createadmin">, #{item.createadmin}</if>
+	  <if test="null != item.describe">, #{item.describe}</if>
+	  <if test="null != item.grade">, #{item.grade}</if>
+	  <if test="null != item.type">, #{item.type}</if>
+	  <if test="null != item.superior">, #{item.superior}</if>
+	  <if test="null != item.sort">, #{item.sort}</if>
+	  <if test="null != item.url">, #{item.url}</if>
+	  <if test="null != item.name">, #{item.name}</if>
+	  <if test="null != item.icopath">, #{item.icopath}</if>
+	  <if test="null != item.relationmenu">, #{item.relationmenu}</if>
+	  <if test="null != item.isdelete">, #{item.isdelete}</if>
+	  <if test="null != item.autoattach">, #{item.autoattach}</if>
+	)
+  </sql>
+  <insert id="save" keyProperty="item.id" useGeneratedKeys="true">
+    <include refid="sql_save_columns" /><include refid="sql_save_values" />
+  </insert>
+  <insert id="batchSave">
+    <foreach collection="list" index="index" item="item" open="" separator=";" close="">
+	  <include refid="sql_save_columns" /><include refid="sql_save_values" />
+	</foreach>
+  </insert>
+  <sql id="sql_update">
+    update manage_menu
+ <set> 
+      <if test="null != item.number">number = #{item.number},</if>
+      <if test="null != item.createtime">createtime = #{item.createtime},</if>
+      <if test="null != item.createadmin">createadmin = #{item.createadmin},</if>
+      <if test="null != item.describe">manage_menu.describe = #{item.describe},</if>
+      <if test="null != item.grade">grade = #{item.grade},</if>
+      <if test="null != item.type">type = #{item.type},</if>
+      <if test="null != item.superior">superior = #{item.superior},</if>
+      <if test="null != item.sort">sort = #{item.sort},</if>
+      <if test="null != item.url">url = #{item.url},</if>
+      <if test="null != item.name">manage_menu.name = #{item.name},</if>
+      <if test="null != item.icopath">icopath = #{item.icopath},</if>
+      <if test="null != item.relationmenu">relationmenu = #{item.relationmenu},</if>
+      <if test="null != item.isdelete">isDelete = #{item.isdelete},</if>
+      <if test="null != item.autoattach">autoAttach = #{item.autoattach},</if>
+</set>	where id = #{item.id}
+  </sql>
+  <update id="update">
+    <include refid="sql_update" />
+  </update>
+  <update id="batchUpdate">
+    <foreach collection="list" index="index" item="item" open="" separator=";" close="">
+	  <include refid="sql_update" />
+	</foreach>
+  </update>
+  <delete id="delArray">
+    delete from manage_menu where id in
+	<foreach collection="array" index="index" item="item" open="(" separator="," close=")">#{item}</foreach>
+  </delete>
+  <delete id="delList">
+    delete from manage_menu where id in
+	<foreach collection="list" index="index" item="item" open="(" separator="," close=")">#{item}</foreach>
+  </delete>
+  <delete id="delByCondition">
+     update manage_menu set isDelete=1 <include refid="sql_where" />
+  </delete>
+  <delete id="delById">
+     update manage_menu set isDelete=1  where id =#{id} 
+  </delete>
+</mapper>

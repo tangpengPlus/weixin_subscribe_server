@@ -1,0 +1,58 @@
+
+
+.login_bg{
+    background-color: #363f45;
+    background-image: url("../img/login_bg.jpg");
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+}
+#login-page{
+    width: 300px;
+    height: 480px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+label.login_label{
+    color: #333;
+}
+#login-page .card-panel{
+    background-color: rgba(255,255,255,0.5);
+    border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 4px;
+}
+#login-page .login-form-text{
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+}
+/*验证码*/
+.testCode{
+    height: 4em;
+    border: 1px solid #9e9e9e;
+    cursor: pointer;
+    position: relative;
+}
+.testCode.col.s4.m4.l4{
+    margin-left: -0.75rem;
+    margin-top: 1px;
+}
+.testCode>img{
+    margin: 0;
+    border: 0;
+    padding: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+/*end 验证码*/
+
+
+

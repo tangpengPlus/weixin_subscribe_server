@@ -1,0 +1,63 @@
+
+
+.treeList{
+    width: 100%;
+}
+.treeList a{position: relative;}
+.treeList a i{
+    display: inline-block;*display: inline;*zoom: 1;
+    font-size: 14px;
+    width: 18px;
+    height: 30px;
+    line-height: 30px;
+}
+.treeList a span{
+    display: inline-block;*display: inline;*zoom: 1;
+    font-size: 14px;
+    line-height: 30px;
+}
+.treeList input[type="checkbox"]{
+    margin: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    filter: alpha(opacity=50);/*ie*/
+}
+.tree_level_2,
+.tree_level_3,
+.tree_level_4{
+    padding-left: 20px;
+}
+.lastLevel:after,
+.tree_menu:after{
+    content: "";
+    clear: both;
+    display: block;
+    width: 100%;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+}
+.lastLevel li{
+    float: left;
+    width: 14.28571428571429%;
+}
+.tree_menu{
+    margin-top: -10px;
+    padding-left: 10px;
+}
+.tree_menu li{
+
+    float: left;
+    width: 14.28571428571429%;
+}
+.tree_menu li a{  color: #999;  }
+.tree_menu li a:hover{  color: #667fa0;  }
+
+.checkAll,a.checkAll i,a.checkAll span{
+    font-size: 16px;
+    font-weight: bold;
+}

@@ -1,0 +1,30 @@
+/************************/
+/*materialize.cssÑùÊ½ÐÞ¸Ä*/
+/************************/
+.side-nav .collapsible-body,
+.side-nav.fixed .collapsible-body {
+    background-color: rgba(255,255,255,0.1);
+}
+.side-nav .collapsible-body li.active .collapsible-body li a{
+    color: #333;
+    padding-left: 30px;
+}
+.side-nav .collapsible-body li.active a,
+.side-nav.fixed .collapsible-body li.active a {
+    color: #333;
+}
+ul.side-nav.fixed li:hover,
+ul.side-nav.fixed li.active {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+ul.side-nav.fixed li.active li.active{
+    background-color: rgba(0, 0, 0, 0.1);
+}
+.pagination{
+    float: right;
+}
+.pagination a{
+    display: block;
+    height: 30px;
+    line-height: 30px;
+}

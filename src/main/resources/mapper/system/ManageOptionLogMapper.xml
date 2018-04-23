@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gency.subscribe.dao.sys.ManageOptionLogMapper">
+  <resultMap id="BaseResultMap" type="com.gency.subscribe.model.system.ManageOptionLog">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="authorid" jdbcType="INTEGER" property="authorid" />
+    <result column="adminId" jdbcType="INTEGER" property="adminid" />
+    <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="optioncount" jdbcType="VARCHAR" property="optioncount" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, authorid, adminId, createtime, optioncount
+  </sql>
+  <insert id="insertSelective" parameterType="com.gency.subscribe.model.system.ManageOptionLog">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into manage_option_log
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="authorid != null">
+        authorid,
+      </if>
+      <if test="adminid != null">
+        adminId,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="optioncount != null">
+        optioncount,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="authorid != null">
+        #{authorid,jdbcType=INTEGER},
+      </if>
+      <if test="adminid != null">
+        #{adminid,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="optioncount != null">
+        #{optioncount,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.gency.subscribe.model.system.ManageOptionLog">
+    update manage_option_log
+    <set>
+      <if test="authorid != null">
+        authorid = #{authorid,jdbcType=INTEGER},
+      </if>
+      <if test="adminid != null">
+        adminId = #{adminid,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="optioncount != null">
+        optioncount = #{optioncount,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <sql id="sql_columns">
+    id,authorid,adminId,createtime,optioncount
+  </sql>
+  <sql id="sql_where">
+    <if test="item !=null "> 
+ <where>
+      <if test="null != item.id">and id = #{item.id}</if>
+      <if test="null != item.authorid">and authorid = #{item.authorid}</if>
+      <if test="null != item.adminid">and adminId = #{item.adminid}</if>
+      <if test="null != item.createtime and '' != item.createtime">and createtime = #{item.createtime}</if>
+      <if test="null != item.optioncount and '' != item.optioncount">and optioncount = #{item.optioncount}</if>
+	</where> 
+ </if>
+  </sql>
+  <select id="selectById" resultMap="BaseResultMap">
+    select <include refid="sql_columns" /> from manage_option_log where id = #{id} and isDelete=0 
+  </select>
+  <select id="selectOne" resultMap="BaseResultMap">
+    select <include refid="sql_columns" /> from manage_option_log <include refid="sql_where" /> limit 1
+  </select>
+  <select id="selectList" resultMap="BaseResultMap">
+    select <include refid="sql_columns" /> from manage_option_log <include refid="sql_where" />  order by id desc
+  </select>
+  <sql id="sql_save_columns">
+    insert into manage_option_log(
+	  <if test="null != item.authorid"> authorid</if>
+	  <if test="null != item.adminid">, adminId</if>
+	  <if test="null != item.createtime">, createtime</if>
+	  <if test="null != item.optioncount">, optioncount</if>
+	) values
+  </sql>
+  <sql id="sql_save_values">
+    (
+	  <if test="null != item.authorid"> #{item.authorid}</if>
+	  <if test="null != item.adminid">, #{item.adminid}</if>
+	  <if test="null != item.createtime">, #{item.createtime}</if>
+	  <if test="null != item.optioncount">, #{item.optioncount}</if>
+	)
+  </sql>
+  <insert id="save" keyProperty="item.id" useGeneratedKeys="true">
+    <include refid="sql_save_columns" /><include refid="sql_save_values" />
+  </insert>
+  <insert id="batchSave">
+    <foreach collection="list" index="index" item="item" open="" separator=";" close="">
+	  <include refid="sql_save_columns" /><include refid="sql_save_values" />
+	</foreach>
+  </insert>
+  <sql id="sql_update">
+    update manage_option_log
+ <set> 
+      <if test="null != item.authorid">authorid = #{item.authorid},</if>
+      <if test="null != item.adminid">adminId = #{item.adminid},</if>
+      <if test="null != item.createtime">createtime = #{item.createtime},</if>
+      <if test="null != item.optioncount">optioncount = #{item.optioncount},</if>
+</set>	where id = #{item.id}
+  </sql>
+  <update id="update">
+    <include refid="sql_update" />
+  </update>
+  <update id="batchUpdate">
+    <foreach collection="list" index="index" item="item" open="" separator=";" close="">
+	  <include refid="sql_update" />
+	</foreach>
+  </update>
+  <delete id="delArray">
+    delete from manage_option_log where id in
+	<foreach collection="array" index="index" item="item" open="(" separator="," close=")">#{item}</foreach>
+  </delete>
+  <delete id="delList">
+    delete from manage_option_log where id in
+	<foreach collection="list" index="index" item="item" open="(" separator="," close=")">#{item}</foreach>
+  </delete>
+  <delete id="delByCondition">
+     update manage_option_log set isDelete=1 <include refid="sql_where" />
+  </delete>
+  <delete id="delById">
+     update manage_option_log set isDelete=1  where id =#{id} 
+  </delete>
+</mapper>

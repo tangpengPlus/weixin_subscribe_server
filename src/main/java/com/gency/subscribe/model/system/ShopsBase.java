@@ -1,0 +1,1126 @@
+package com.gency.subscribe.model.system;
+
+import java.math.BigDecimal;
+import java.util.Date;
+
+import com.gency.subscribe.model.base.BaseModel;
+
+/**
+	* 作者:唐鹏
+	* 描述:
+	* 版本: version 1.0.0
+	* 时间:2017-08-21 10:09:29
+  */
+public class ShopsBase extends BaseModel {
+    /**
+     * 编号
+     * 表字段 : ec_shops_base.id
+     */
+    private Long id;
+
+    /**
+     * 商家id
+     * 表字段 : ec_shops_base.businessId
+     */
+    private Long businessid;
+
+    /**
+     * 店铺编号
+     * 表字段 : ec_shops_base.shopsNo
+     */
+    private String shopsno;
+
+    /**
+     * 店铺名称
+     * 表字段 : ec_shops_base.name
+     */
+    private String name;
+
+    /**
+     * 主营业务√
+     * 表字段 : ec_shops_base.mainBus
+     */
+    private String mainbus;
+
+    /**
+     * 所在地(省)
+     * 表字段 : ec_shops_base.province
+     */
+    private String province;
+
+    /**
+     * 所在地(市)
+     * 表字段 : ec_shops_base.city
+     */
+    private String city;
+
+    /**
+     * 所在地(县)
+     * 表字段 : ec_shops_base.county
+     */
+    private String county;
+
+    /**
+     * 
+     * 表字段 : ec_shops_base.street
+     */
+    private String street;
+
+    /**
+     * 所在商圈
+     * 表字段 : ec_shops_base.shoppingmall
+     */
+    private String shoppingmall;
+
+    /**
+     * 直属代理商ID
+     * 表字段 : ec_shops_base.agentId
+     */
+    private Long agentid;
+
+    /**
+     * 销售ID
+     * 表字段 : ec_shops_base.salesmanId
+     */
+    private Long salesmanid;
+
+    /**
+     * 扩展属性√
+     * 表字段 : ec_shops_base.expandId
+     */
+    private Long expandid;
+
+    /**
+     * 扩展属性值√
+     * 表字段 : ec_shops_base.expandValId
+     */
+    private Long expandvalid;
+
+    /**
+     * 成立时间√
+     * 表字段 : ec_shops_base.setupTime
+     */
+    private String setuptime;
+
+    /**
+     * 营业开始时间
+     * 表字段 : ec_shops_base.startTime
+     */
+    private String starttime;
+
+    /**
+     * 营业结束时间
+     * 表字段 : ec_shops_base.endTime
+     */
+    private String endtime;
+
+    /**
+     * 店铺实拍图片√
+     * 表字段 : ec_shops_base.imgIds
+     */
+    private String imgids;
+
+    /**
+     * 营业执照IDs
+     * 表字段 : ec_shops_base.licenceIds
+     */
+    private String licenceids;
+
+    /**
+     * 店铺坐标
+     * 表字段 : ec_shops_base.location
+     */
+    private String location;
+
+    /**
+     * 商铺评分
+     * 表字段 : ec_shops_base.score
+     */
+    private String score;
+
+    /**
+     * 是否商城 0 否 1是
+     * 表字段 : ec_shops_base.isMall
+     */
+    private Byte ismall;
+
+    /**
+     * 是否默认店铺 0 否 1是
+     * 表字段 : ec_shops_base.isDefault
+     */
+    private Byte isdefault;
+
+    /**
+     * 是否删除 0 否 1是
+     * 表字段 : ec_shops_base.isDelete
+     */
+    private Byte isdelete;
+
+    /**
+     * 合作模式√ 1 团购 2 易积购 3 在线点餐 逗号分隔
+     * 表字段 : ec_shops_base.coopModel
+     */
+    private String coopmodel;
+
+    /**
+     * 0草稿  1 未审核 2审核通过 3审核未通过 注：审核未通过可再次审核
+     * 表字段 : ec_shops_base.verifyStatus
+     */
+    private Byte verifystatus;
+
+    /**
+     * 审核描述
+     * 表字段 : ec_shops_base.verifyNote
+     */
+    private String verifynote;
+
+    /**
+     * 0 未上线 1正常在线 2 已下线
+     * 表字段 : ec_shops_base.onlineStatus
+     */
+    private Byte onlinestatus;
+
+    /**
+     * 0 否 1是
+     * 表字段 : ec_shops_base.isDirectShop
+     */
+    private Byte isdirectshop;
+
+    /**
+     * 到期时间
+     * 表字段 : ec_shops_base.expireTime
+     */
+    private Date expiretime;
+
+    /**
+     * 店铺密码
+     * 表字段 : ec_shops_base.pwd
+     */
+    private String pwd;
+
+    /**
+     * 创建人
+     * 表字段 : ec_shops_base.createUser
+     */
+    private String createuser;
+
+    /**
+     * 创建时间
+     * 表字段 : ec_shops_base.createTime
+     */
+    private Date createtime;
+
+    /**
+     * æ“ä½œäºº
+     * 表字段 : ec_shops_base.updateUser
+     */
+    private String updateuser;
+
+    /**
+     * 操作时间
+     * 表字段 : ec_shops_base.updateTime
+     */
+    private Date updatetime;
+
+    /**
+     * 是否修改 0 否(初始) 1 未生成静态界面 2 已生成静态界面 
+     * 表字段 : ec_shops_base.isModify
+     */
+    private Byte ismodify;
+
+    /**
+     * SEO标题
+     * 表字段 : ec_shops_base.seoTitle
+     */
+    private String seotitle;
+
+    /**
+     * SEO关键字
+     * 表字段 : ec_shops_base.seoKeyword
+     */
+    private String seokeyword;
+
+    /**
+     * SEO描述
+     * 表字段 : ec_shops_base.seoDescription
+     */
+    private String seodescription;
+
+    /**
+     * 台卡是否已做 0 否 1是
+     * 表字段 : ec_shops_base.isCard
+     */
+    private Byte iscard;
+
+    /**
+     * 图片是否已传 0 否 1是
+     * 表字段 : ec_shops_base.isSendImg
+     */
+    private Byte issendimg;
+
+    /**
+     * 商家星级0-7星
+     * 表字段 : ec_shops_base.level
+     */
+    private Integer level;
+
+    /**
+     * 是否隐藏1-隐藏,0-显示
+     * 表字段 : ec_shops_base.isHide
+     */
+    private Integer ishide;
+
+    /**
+     * é¤ä½è´¹
+     * 表字段 : ec_shops_base.mealFee
+     */
+    private BigDecimal mealfee;
+
+    /**
+     * æ˜¯å¦æ·»åŠ é¤ä½è´¹ 0ï¼šå¦ 1ï¼šæ˜¯
+     * 表字段 : ec_shops_base.isMealFee
+     */
+    private Integer ismealfee;
+
+    /**
+     * åº—é“ºç®€ä»‹
+     * 表字段 : ec_shops_base.summary
+     */
+    private String summary;
+
+    /**
+     * This field was generated by MyBatis Generator.
+     * This field corresponds to the database table ec_shops_base
+     *
+     * @mbg.generated Mon Aug 21 10:09:29 CST 2017
+     */
+    private static final long serialVersionUID = 1L;
+
+    /**
+     * 获取 编号 字段:ec_shops_base.id
+     *
+     * @return ec_shops_base.id, 编号
+     */
+    public Long getId() {
+        return id;
+    }
+
+    /**
+     * 设置 编号 字段:ec_shops_base.id
+     *
+     * @param id the value for ec_shops_base.id, 编号
+     */
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    /**
+     * 获取 商家id 字段:ec_shops_base.businessId
+     *
+     * @return ec_shops_base.businessId, 商家id
+     */
+    public Long getBusinessid() {
+        return businessid;
+    }
+
+    /**
+     * 设置 商家id 字段:ec_shops_base.businessId
+     *
+     * @param businessid the value for ec_shops_base.businessId, 商家id
+     */
+    public void setBusinessid(Long businessid) {
+        this.businessid = businessid;
+    }
+
+    /**
+     * 获取 店铺编号 字段:ec_shops_base.shopsNo
+     *
+     * @return ec_shops_base.shopsNo, 店铺编号
+     */
+    public String getShopsno() {
+        return shopsno;
+    }
+
+    /**
+     * 设置 店铺编号 字段:ec_shops_base.shopsNo
+     *
+     * @param shopsno the value for ec_shops_base.shopsNo, 店铺编号
+     */
+    public void setShopsno(String shopsno) {
+        this.shopsno = shopsno == null ? null : shopsno.trim();
+    }
+
+    /**
+     * 获取 店铺名称 字段:ec_shops_base.name
+     *
+     * @return ec_shops_base.name, 店铺名称
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * 设置 店铺名称 字段:ec_shops_base.name
+     *
+     * @param name the value for ec_shops_base.name, 店铺名称
+     */
+    public void setName(String name) {
+        this.name = name == null ? null : name.trim();
+    }
+
+    /**
+     * 获取 主营业务√ 字段:ec_shops_base.mainBus
+     *
+     * @return ec_shops_base.mainBus, 主营业务√
+     */
+    public String getMainbus() {
+        return mainbus;
+    }
+
+    /**
+     * 设置 主营业务√ 字段:ec_shops_base.mainBus
+     *
+     * @param mainbus the value for ec_shops_base.mainBus, 主营业务√
+     */
+    public void setMainbus(String mainbus) {
+        this.mainbus = mainbus == null ? null : mainbus.trim();
+    }
+
+    /**
+     * 获取 所在地(省) 字段:ec_shops_base.province
+     *
+     * @return ec_shops_base.province, 所在地(省)
+     */
+    public String getProvince() {
+        return province;
+    }
+
+    /**
+     * 设置 所在地(省) 字段:ec_shops_base.province
+     *
+     * @param province the value for ec_shops_base.province, 所在地(省)
+     */
+    public void setProvince(String province) {
+        this.province = province == null ? null : province.trim();
+    }
+
+    /**
+     * 获取 所在地(市) 字段:ec_shops_base.city
+     *
+     * @return ec_shops_base.city, 所在地(市)
+     */
+    public String getCity() {
+        return city;
+    }
+
+    /**
+     * 设置 所在地(市) 字段:ec_shops_base.city
+     *
+     * @param city the value for ec_shops_base.city, 所在地(市)
+     */
+    public void setCity(String city) {
+        this.city = city == null ? null : city.trim();
+    }
+
+    /**
+     * 获取 所在地(县) 字段:ec_shops_base.county
+     *
+     * @return ec_shops_base.county, 所在地(县)
+     */
+    public String getCounty() {
+        return county;
+    }
+
+    /**
+     * 设置 所在地(县) 字段:ec_shops_base.county
+     *
+     * @param county the value for ec_shops_base.county, 所在地(县)
+     */
+    public void setCounty(String county) {
+        this.county = county == null ? null : county.trim();
+    }
+
+    /**
+     * 获取  字段:ec_shops_base.street
+     *
+     * @return ec_shops_base.street, 
+     */
+    public String getStreet() {
+        return street;
+    }
+
+    /**
+     * 设置  字段:ec_shops_base.street
+     *
+     * @param street the value for ec_shops_base.street, 
+     */
+    public void setStreet(String street) {
+        this.street = street == null ? null : street.trim();
+    }
+
+    /**
+     * 获取 所在商圈 字段:ec_shops_base.shoppingmall
+     *
+     * @return ec_shops_base.shoppingmall, 所在商圈
+     */
+    public String getShoppingmall() {
+        return shoppingmall;
+    }
+
+    /**
+     * 设置 所在商圈 字段:ec_shops_base.shoppingmall
+     *
+     * @param shoppingmall the value for ec_shops_base.shoppingmall, 所在商圈
+     */
+    public void setShoppingmall(String shoppingmall) {
+        this.shoppingmall = shoppingmall == null ? null : shoppingmall.trim();
+    }
+
+    /**
+     * 获取 直属代理商ID 字段:ec_shops_base.agentId
+     *
+     * @return ec_shops_base.agentId, 直属代理商ID
+     */
+    public Long getAgentid() {
+        return agentid;
+    }
+
+    /**
+     * 设置 直属代理商ID 字段:ec_shops_base.agentId
+     *
+     * @param agentid the value for ec_shops_base.agentId, 直属代理商ID
+     */
+    public void setAgentid(Long agentid) {
+        this.agentid = agentid;
+    }
+
+    /**
+     * 获取 销售ID 字段:ec_shops_base.salesmanId
+     *
+     * @return ec_shops_base.salesmanId, 销售ID
+     */
+    public Long getSalesmanid() {
+        return salesmanid;
+    }
+
+    /**
+     * 设置 销售ID 字段:ec_shops_base.salesmanId
+     *
+     * @param salesmanid the value for ec_shops_base.salesmanId, 销售ID
+     */
+    public void setSalesmanid(Long salesmanid) {
+        this.salesmanid = salesmanid;
+    }
+
+    /**
+     * 获取 扩展属性√ 字段:ec_shops_base.expandId
+     *
+     * @return ec_shops_base.expandId, 扩展属性√
+     */
+    public Long getExpandid() {
+        return expandid;
+    }
+
+    /**
+     * 设置 扩展属性√ 字段:ec_shops_base.expandId
+     *
+     * @param expandid the value for ec_shops_base.expandId, 扩展属性√
+     */
+    public void setExpandid(Long expandid) {
+        this.expandid = expandid;
+    }
+
+    /**
+     * 获取 扩展属性值√ 字段:ec_shops_base.expandValId
+     *
+     * @return ec_shops_base.expandValId, 扩展属性值√
+     */
+    public Long getExpandvalid() {
+        return expandvalid;
+    }
+
+    /**
+     * 设置 扩展属性值√ 字段:ec_shops_base.expandValId
+     *
+     * @param expandvalid the value for ec_shops_base.expandValId, 扩展属性值√
+     */
+    public void setExpandvalid(Long expandvalid) {
+        this.expandvalid = expandvalid;
+    }
+
+    /**
+     * 获取 成立时间√ 字段:ec_shops_base.setupTime
+     *
+     * @return ec_shops_base.setupTime, 成立时间√
+     */
+    public String getSetuptime() {
+        return setuptime;
+    }
+
+    /**
+     * 设置 成立时间√ 字段:ec_shops_base.setupTime
+     *
+     * @param setuptime the value for ec_shops_base.setupTime, 成立时间√
+     */
+    public void setSetuptime(String setuptime) {
+        this.setuptime = setuptime == null ? null : setuptime.trim();
+    }
+
+    /**
+     * 获取 营业开始时间 字段:ec_shops_base.startTime
+     *
+     * @return ec_shops_base.startTime, 营业开始时间
+     */
+    public String getStarttime() {
+        return starttime;
+    }
+
+    /**
+     * 设置 营业开始时间 字段:ec_shops_base.startTime
+     *
+     * @param starttime the value for ec_shops_base.startTime, 营业开始时间
+     */
+    public void setStarttime(String starttime) {
+        this.starttime = starttime == null ? null : starttime.trim();
+    }
+
+    /**
+     * 获取 营业结束时间 字段:ec_shops_base.endTime
+     *
+     * @return ec_shops_base.endTime, 营业结束时间
+     */
+    public String getEndtime() {
+        return endtime;
+    }
+
+    /**
+     * 设置 营业结束时间 字段:ec_shops_base.endTime
+     *
+     * @param endtime the value for ec_shops_base.endTime, 营业结束时间
+     */
+    public void setEndtime(String endtime) {
+        this.endtime = endtime == null ? null : endtime.trim();
+    }
+
+    /**
+     * 获取 店铺实拍图片√ 字段:ec_shops_base.imgIds
+     *
+     * @return ec_shops_base.imgIds, 店铺实拍图片√
+     */
+    public String getImgids() {
+        return imgids;
+    }
+
+    /**
+     * 设置 店铺实拍图片√ 字段:ec_shops_base.imgIds
+     *
+     * @param imgids the value for ec_shops_base.imgIds, 店铺实拍图片√
+     */
+    public void setImgids(String imgids) {
+        this.imgids = imgids == null ? null : imgids.trim();
+    }
+
+    /**
+     * 获取 营业执照IDs 字段:ec_shops_base.licenceIds
+     *
+     * @return ec_shops_base.licenceIds, 营业执照IDs
+     */
+    public String getLicenceids() {
+        return licenceids;
+    }
+
+    /**
+     * 设置 营业执照IDs 字段:ec_shops_base.licenceIds
+     *
+     * @param licenceids the value for ec_shops_base.licenceIds, 营业执照IDs
+     */
+    public void setLicenceids(String licenceids) {
+        this.licenceids = licenceids == null ? null : licenceids.trim();
+    }
+
+    /**
+     * 获取 店铺坐标 字段:ec_shops_base.location
+     *
+     * @return ec_shops_base.location, 店铺坐标
+     */
+    public String getLocation() {
+        return location;
+    }
+
+    /**
+     * 设置 店铺坐标 字段:ec_shops_base.location
+     *
+     * @param location the value for ec_shops_base.location, 店铺坐标
+     */
+    public void setLocation(String location) {
+        this.location = location == null ? null : location.trim();
+    }
+
+    /**
+     * 获取 商铺评分 字段:ec_shops_base.score
+     *
+     * @return ec_shops_base.score, 商铺评分
+     */
+    public String getScore() {
+        return score;
+    }
+
+    /**
+     * 设置 商铺评分 字段:ec_shops_base.score
+     *
+     * @param score the value for ec_shops_base.score, 商铺评分
+     */
+    public void setScore(String score) {
+        this.score = score == null ? null : score.trim();
+    }
+
+    /**
+     * 获取 是否商城 0 否 1是 字段:ec_shops_base.isMall
+     *
+     * @return ec_shops_base.isMall, 是否商城 0 否 1是
+     */
+    public Byte getIsmall() {
+        return ismall;
+    }
+
+    /**
+     * 设置 是否商城 0 否 1是 字段:ec_shops_base.isMall
+     *
+     * @param ismall the value for ec_shops_base.isMall, 是否商城 0 否 1是
+     */
+    public void setIsmall(Byte ismall) {
+        this.ismall = ismall;
+    }
+
+    /**
+     * 获取 是否默认店铺 0 否 1是 字段:ec_shops_base.isDefault
+     *
+     * @return ec_shops_base.isDefault, 是否默认店铺 0 否 1是
+     */
+    public Byte getIsdefault() {
+        return isdefault;
+    }
+
+    /**
+     * 设置 是否默认店铺 0 否 1是 字段:ec_shops_base.isDefault
+     *
+     * @param isdefault the value for ec_shops_base.isDefault, 是否默认店铺 0 否 1是
+     */
+    public void setIsdefault(Byte isdefault) {
+        this.isdefault = isdefault;
+    }
+
+    /**
+     * 获取 是否删除 0 否 1是 字段:ec_shops_base.isDelete
+     *
+     * @return ec_shops_base.isDelete, 是否删除 0 否 1是
+     */
+    public Byte getIsdelete() {
+        return isdelete;
+    }
+
+    /**
+     * 设置 是否删除 0 否 1是 字段:ec_shops_base.isDelete
+     *
+     * @param isdelete the value for ec_shops_base.isDelete, 是否删除 0 否 1是
+     */
+    public void setIsdelete(Byte isdelete) {
+        this.isdelete = isdelete;
+    }
+
+    /**
+     * 获取 合作模式√ 1 团购 2 易积购 3 在线点餐 逗号分隔 字段:ec_shops_base.coopModel
+     *
+     * @return ec_shops_base.coopModel, 合作模式√ 1 团购 2 易积购 3 在线点餐 逗号分隔
+     */
+    public String getCoopmodel() {
+        return coopmodel;
+    }
+
+    /**
+     * 设置 合作模式√ 1 团购 2 易积购 3 在线点餐 逗号分隔 字段:ec_shops_base.coopModel
+     *
+     * @param coopmodel the value for ec_shops_base.coopModel, 合作模式√ 1 团购 2 易积购 3 在线点餐 逗号分隔
+     */
+    public void setCoopmodel(String coopmodel) {
+        this.coopmodel = coopmodel == null ? null : coopmodel.trim();
+    }
+
+    /**
+     * 获取 0草稿  1 未审核 2审核通过 3审核未通过 注：审核未通过可再次审核 字段:ec_shops_base.verifyStatus
+     *
+     * @return ec_shops_base.verifyStatus, 0草稿  1 未审核 2审核通过 3审核未通过 注：审核未通过可再次审核
+     */
+    public Byte getVerifystatus() {
+        return verifystatus;
+    }
+
+    /**
+     * 设置 0草稿  1 未审核 2审核通过 3审核未通过 注：审核未通过可再次审核 字段:ec_shops_base.verifyStatus
+     *
+     * @param verifystatus the value for ec_shops_base.verifyStatus, 0草稿  1 未审核 2审核通过 3审核未通过 注：审核未通过可再次审核
+     */
+    public void setVerifystatus(Byte verifystatus) {
+        this.verifystatus = verifystatus;
+    }
+
+    /**
+     * 获取 审核描述 字段:ec_shops_base.verifyNote
+     *
+     * @return ec_shops_base.verifyNote, 审核描述
+     */
+    public String getVerifynote() {
+        return verifynote;
+    }
+
+    /**
+     * 设置 审核描述 字段:ec_shops_base.verifyNote
+     *
+     * @param verifynote the value for ec_shops_base.verifyNote, 审核描述
+     */
+    public void setVerifynote(String verifynote) {
+        this.verifynote = verifynote == null ? null : verifynote.trim();
+    }
+
+    /**
+     * 获取 0 未上线 1正常在线 2 已下线 字段:ec_shops_base.onlineStatus
+     *
+     * @return ec_shops_base.onlineStatus, 0 未上线 1正常在线 2 已下线
+     */
+    public Byte getOnlinestatus() {
+        return onlinestatus;
+    }
+
+    /**
+     * 设置 0 未上线 1正常在线 2 已下线 字段:ec_shops_base.onlineStatus
+     *
+     * @param onlinestatus the value for ec_shops_base.onlineStatus, 0 未上线 1正常在线 2 已下线
+     */
+    public void setOnlinestatus(Byte onlinestatus) {
+        this.onlinestatus = onlinestatus;
+    }
+
+    /**
+     * 获取 0 否 1是 字段:ec_shops_base.isDirectShop
+     *
+     * @return ec_shops_base.isDirectShop, 0 否 1是
+     */
+    public Byte getIsdirectshop() {
+        return isdirectshop;
+    }
+
+    /**
+     * 设置 0 否 1是 字段:ec_shops_base.isDirectShop
+     *
+     * @param isdirectshop the value for ec_shops_base.isDirectShop, 0 否 1是
+     */
+    public void setIsdirectshop(Byte isdirectshop) {
+        this.isdirectshop = isdirectshop;
+    }
+
+    /**
+     * 获取 到期时间 字段:ec_shops_base.expireTime
+     *
+     * @return ec_shops_base.expireTime, 到期时间
+     */
+    public Date getExpiretime() {
+        return expiretime;
+    }
+
+    /**
+     * 设置 到期时间 字段:ec_shops_base.expireTime
+     *
+     * @param expiretime the value for ec_shops_base.expireTime, 到期时间
+     */
+    public void setExpiretime(Date expiretime) {
+        this.expiretime = expiretime;
+    }
+
+    /**
+     * 获取 店铺密码 字段:ec_shops_base.pwd
+     *
+     * @return ec_shops_base.pwd, 店铺密码
+     */
+    public String getPwd() {
+        return pwd;
+    }
+
+    /**
+     * 设置 店铺密码 字段:ec_shops_base.pwd
+     *
+     * @param pwd the value for ec_shops_base.pwd, 店铺密码
+     */
+    public void setPwd(String pwd) {
+        this.pwd = pwd == null ? null : pwd.trim();
+    }
+
+    /**
+     * 获取 创建人 字段:ec_shops_base.createUser
+     *
+     * @return ec_shops_base.createUser, 创建人
+     */
+    public String getCreateuser() {
+        return createuser;
+    }
+
+    /**
+     * 设置 创建人 字段:ec_shops_base.createUser
+     *
+     * @param createuser the value for ec_shops_base.createUser, 创建人
+     */
+    public void setCreateuser(String createuser) {
+        this.createuser = createuser == null ? null : createuser.trim();
+    }
+
+    /**
+     * 获取 创建时间 字段:ec_shops_base.createTime
+     *
+     * @return ec_shops_base.createTime, 创建时间
+     */
+    public Date getCreatetime() {
+        return createtime;
+    }
+
+    /**
+     * 设置 创建时间 字段:ec_shops_base.createTime
+     *
+     * @param createtime the value for ec_shops_base.createTime, 创建时间
+     */
+    public void setCreatetime(Date createtime) {
+        this.createtime = createtime;
+    }
+
+    /**
+     * 获取 æ“ä½œäºº 字段:ec_shops_base.updateUser
+     *
+     * @return ec_shops_base.updateUser, æ“ä½œäºº
+     */
+    public String getUpdateuser() {
+        return updateuser;
+    }
+
+    /**
+     * 设置 æ“ä½œäºº 字段:ec_shops_base.updateUser
+     *
+     * @param updateuser the value for ec_shops_base.updateUser, æ“ä½œäºº
+     */
+    public void setUpdateuser(String updateuser) {
+        this.updateuser = updateuser == null ? null : updateuser.trim();
+    }
+
+    /**
+     * 获取 操作时间 字段:ec_shops_base.updateTime
+     *
+     * @return ec_shops_base.updateTime, 操作时间
+     */
+    public Date getUpdatetime() {
+        return updatetime;
+    }
+
+    /**
+     * 设置 操作时间 字段:ec_shops_base.updateTime
+     *
+     * @param updatetime the value for ec_shops_base.updateTime, 操作时间
+     */
+    public void setUpdatetime(Date updatetime) {
+        this.updatetime = updatetime;
+    }
+
+    /**
+     * 获取 是否修改 0 否(初始) 1 未生成静态界面 2 已生成静态界面  字段:ec_shops_base.isModify
+     *
+     * @return ec_shops_base.isModify, 是否修改 0 否(初始) 1 未生成静态界面 2 已生成静态界面 
+     */
+    public Byte getIsmodify() {
+        return ismodify;
+    }
+
+    /**
+     * 设置 是否修改 0 否(初始) 1 未生成静态界面 2 已生成静态界面  字段:ec_shops_base.isModify
+     *
+     * @param ismodify the value for ec_shops_base.isModify, 是否修改 0 否(初始) 1 未生成静态界面 2 已生成静态界面 
+     */
+    public void setIsmodify(Byte ismodify) {
+        this.ismodify = ismodify;
+    }
+
+    /**
+     * 获取 SEO标题 字段:ec_shops_base.seoTitle
+     *
+     * @return ec_shops_base.seoTitle, SEO标题
+     */
+    public String getSeotitle() {
+        return seotitle;
+    }
+
+    /**
+     * 设置 SEO标题 字段:ec_shops_base.seoTitle
+     *
+     * @param seotitle the value for ec_shops_base.seoTitle, SEO标题
+     */
+    public void setSeotitle(String seotitle) {
+        this.seotitle = seotitle == null ? null : seotitle.trim();
+    }
+
+    /**
+     * 获取 SEO关键字 字段:ec_shops_base.seoKeyword
+     *
+     * @return ec_shops_base.seoKeyword, SEO关键字
+     */
+    public String getSeokeyword() {
+        return seokeyword;
+    }
+
+    /**
+     * 设置 SEO关键字 字段:ec_shops_base.seoKeyword
+     *
+     * @param seokeyword the value for ec_shops_base.seoKeyword, SEO关键字
+     */
+    public void setSeokeyword(String seokeyword) {
+        this.seokeyword = seokeyword == null ? null : seokeyword.trim();
+    }
+
+    /**
+     * 获取 SEO描述 字段:ec_shops_base.seoDescription
+     *
+     * @return ec_shops_base.seoDescription, SEO描述
+     */
+    public String getSeodescription() {
+        return seodescription;
+    }
+
+    /**
+     * 设置 SEO描述 字段:ec_shops_base.seoDescription
+     *
+     * @param seodescription the value for ec_shops_base.seoDescription, SEO描述
+     */
+    public void setSeodescription(String seodescription) {
+        this.seodescription = seodescription == null ? null : seodescription.trim();
+    }
+
+    /**
+     * 获取 台卡是否已做 0 否 1是 字段:ec_shops_base.isCard
+     *
+     * @return ec_shops_base.isCard, 台卡是否已做 0 否 1是
+     */
+    public Byte getIscard() {
+        return iscard;
+    }
+
+    /**
+     * 设置 台卡是否已做 0 否 1是 字段:ec_shops_base.isCard
+     *
+     * @param iscard the value for ec_shops_base.isCard, 台卡是否已做 0 否 1是
+     */
+    public void setIscard(Byte iscard) {
+        this.iscard = iscard;
+    }
+
+    /**
+     * 获取 图片是否已传 0 否 1是 字段:ec_shops_base.isSendImg
+     *
+     * @return ec_shops_base.isSendImg, 图片是否已传 0 否 1是
+     */
+    public Byte getIssendimg() {
+        return issendimg;
+    }
+
+    /**
+     * 设置 图片是否已传 0 否 1是 字段:ec_shops_base.isSendImg
+     *
+     * @param issendimg the value for ec_shops_base.isSendImg, 图片是否已传 0 否 1是
+     */
+    public void setIssendimg(Byte issendimg) {
+        this.issendimg = issendimg;
+    }
+
+    /**
+     * 获取 商家星级0-7星 字段:ec_shops_base.level
+     *
+     * @return ec_shops_base.level, 商家星级0-7星
+     */
+    public Integer getLevel() {
+        return level;
+    }
+
+    /**
+     * 设置 商家星级0-7星 字段:ec_shops_base.level
+     *
+     * @param level the value for ec_shops_base.level, 商家星级0-7星
+     */
+    public void setLevel(Integer level) {
+        this.level = level;
+    }
+
+    /**
+     * 获取 是否隐藏1-隐藏,0-显示 字段:ec_shops_base.isHide
+     *
+     * @return ec_shops_base.isHide, 是否隐藏1-隐藏,0-显示
+     */
+    public Integer getIshide() {
+        return ishide;
+    }
+
+    /**
+     * 设置 是否隐藏1-隐藏,0-显示 字段:ec_shops_base.isHide
+     *
+     * @param ishide the value for ec_shops_base.isHide, 是否隐藏1-隐藏,0-显示
+     */
+    public void setIshide(Integer ishide) {
+        this.ishide = ishide;
+    }
+
+    /**
+     * 获取 é¤ä½è´¹ 字段:ec_shops_base.mealFee
+     *
+     * @return ec_shops_base.mealFee, é¤ä½è´¹
+     */
+    public BigDecimal getMealfee() {
+        return mealfee;
+    }
+
+    /**
+     * 设置 é¤ä½è´¹ 字段:ec_shops_base.mealFee
+     *
+     * @param mealfee the value for ec_shops_base.mealFee, é¤ä½è´¹
+     */
+    public void setMealfee(BigDecimal mealfee) {
+        this.mealfee = mealfee;
+    }
+
+    /**
+     * 获取 æ˜¯å¦æ·»åŠ é¤ä½è´¹ 0ï¼šå¦ 1ï¼šæ˜¯ 字段:ec_shops_base.isMealFee
+     *
+     * @return ec_shops_base.isMealFee, æ˜¯å¦æ·»åŠ é¤ä½è´¹ 0ï¼šå¦ 1ï¼šæ˜¯
+     */
+    public Integer getIsmealfee() {
+        return ismealfee;
+    }
+
+    /**
+     * 设置 æ˜¯å¦æ·»åŠ é¤ä½è´¹ 0ï¼šå¦ 1ï¼šæ˜¯ 字段:ec_shops_base.isMealFee
+     *
+     * @param ismealfee the value for ec_shops_base.isMealFee, æ˜¯å¦æ·»åŠ é¤ä½è´¹ 0ï¼šå¦ 1ï¼šæ˜¯
+     */
+    public void setIsmealfee(Integer ismealfee) {
+        this.ismealfee = ismealfee;
+    }
+
+    /**
+     * 获取 åº—é“ºç®€ä»‹ 字段:ec_shops_base.summary
+     *
+     * @return ec_shops_base.summary, åº—é“ºç®€ä»‹
+     */
+    public String getSummary() {
+        return summary;
+    }
+
+    /**
+     * 设置 åº—é“ºç®€ä»‹ 字段:ec_shops_base.summary
+     *
+     * @param summary the value for ec_shops_base.summary, åº—é“ºç®€ä»‹
+     */
+    public void setSummary(String summary) {
+        this.summary = summary == null ? null : summary.trim();
+    }
+}
