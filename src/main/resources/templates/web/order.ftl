@@ -238,7 +238,7 @@
     			
     			$.ajax({
     							url:"${base}/web/order/save",
-    							data:{"phone":yanzvalue},
+    							data:{"userName":xianm,"userTel":xianm4,"licensePlate":xianm1,"numberOfPeople":},
     							dataType:"text",
     							type:"post",
     							success:function(data){

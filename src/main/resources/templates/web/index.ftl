@@ -31,7 +31,7 @@
     	<div class="nav">
     		<ul>
     			<li>
-    				<a href="order.html">
+    				<a href="${base}/web/order/show">
     					<div class="box">
     				<div class="left">
     					<p>TO MAKE</p>
@@ -46,7 +46,7 @@
     			</li>
     			<li class="xian_right"></li>
     			<li>
-	    			<a href="Visit.html">
+	    			<a href="${base}/web/order/visit">
 	    				<div class="box">
 	    				<div class="left">
     					<p>VISIT</p>

@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.gency.subscribe.core.util.base.LazyServiceNumberUtil;
-import com.gency.subscribe.core.util.base.LazyServiceSendMssage;
 
 @Controller
 @RequestMapping(value="/web/order")
@@ -40,7 +39,7 @@ public class OrderServiceController {
 		try {
 			String num = LazyServiceNumberUtil.productNumber();
 			session.setAttribute("valide_number", num);
-			LazyServiceSendMssage.sendSMS(phone, new String []{num}, "245551");
+//			LazyServiceSendMssage.sendSMS(phone, new String []{num}, "245551");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
