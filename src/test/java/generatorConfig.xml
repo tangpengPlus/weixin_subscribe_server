@@ -29,7 +29,7 @@
         <javaClientGenerator type="XMLMAPPER" targetPackage="com.gency.subscribe.dao.business" targetProject="src/main/java">  
             <property name="enableSubPackages" value="true"/>  
         </javaClientGenerator>
-       <table tableName="tra_order_base" domainObjectName="TraOrderBase" enableCountByExample="false" enableUpdateByExample="false"
+       <table tableName="ser_user_call" domainObjectName="SerUserCall" enableCountByExample="false" enableUpdateByExample="false"
          enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
          <property name="rootClass" value="com.gency.subscribe.model.base.BaseModel" />
           <generatedKey column="id" sqlStatement="MySql"  identity="true"/>

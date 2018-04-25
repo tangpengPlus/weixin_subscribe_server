@@ -1,0 +1,217 @@
+
+*{
+	margin: 0;
+	padding: 0;
+	border:none;
+	box-sizing: border-box;
+	font-family: "微软雅黑";
+	outline: none;
+}
+@font-face {
+	font-family:"Aba";
+	src: url("../font/Aba.ttf") format('truetype');
+}
+html{
+	font-size: 100px;
+}
+a{
+	text-decoration: none;
+}
+img{
+    border: none;
+    vertical-align: middle;
+    max-width: 100%;
+}
+.wrap{
+	overflow: hidden;
+	position: relative;
+	min-width: 3.2rem;
+	max-width: 7.5rem;
+	margin-left: auto;
+	margin-right: auto;
+}
+.wrap .topimg{
+	position: relative;
+}
+.wrap .topimg img{
+	width: 100%;
+}
+.wrap .topimg  input{
+	outline: none;
+	text-align: center;
+	position: absolute;
+	height: 0.6rem;
+	top: 3rem;
+	left: 0;
+	right: 0;
+	margin: auto auto;
+	width: 4.6rem;
+	font-size: 0.34rem;
+	letter-spacing: 0.04rem;
+	background: rgba(255,255,255,0.8);
+	border:1px solid #dcac72;
+	border-radius:0.3rem ;
+}
+.wrap .topimg  input::-webkit-input-placeholder{
+	color: #7c756a;
+}
+
+.wrap .topimg  input::input-placeholder{
+	color: #7c756a;
+}
+.wrap .title{
+     height: 0.8rem;
+	 display: block;
+	 margin: 0.6rem auto 0.4rem;
+	 
+	 }
+.wrap .xian{
+	height: 2px;
+	width: 96%;
+	margin: 0 auto;
+	background: -webkit-linear-gradient(left,#DDAD5F,#644109);
+	background: -moz-linear-gradient(left,#DDAD5F,#644109);
+	background: -o-linear-gradient(left,#DDAD5F,#644109);
+	background: linear-gradient(left,#DDAD5F,#644109);
+}
+/*手机号输入框*/
+.wrap .telnumber{
+	font-size: 0.3rem;
+	color: #6e6b68;
+	width: 6rem;
+	height: 0.6rem;
+	border-radius:0.3rem ;
+	border: 1px solid #dcac72;
+	text-align: center;
+	margin:2rem auto 0.2rem ;
+	letter-spacing: 0.02rem;
+	line-height: 0.6rem;
+	background: #fdfbf8;
+	display: block;
+}
+.wrap>p{
+	text-align: center;
+	color: #e3bd93;
+	font-size:0.24rem ;
+	margin-bottom: 2rem;
+	letter-spacing: 0.02rem;
+}
+.wrap  .tel::-webkit-input-placeholder{
+	color: #6e6b68;
+}
+.wrap  .tel::input-placeholder{
+	color: #6e6b68;
+}
+/*呼叫按钮*/
+.wrap  .callbtn{
+	font-size: 0.36rem;
+	font-weight: bold;
+	color: #dcac72;
+	width: 1.3rem;
+	height: 0.6rem;
+	border-radius:0.3rem ;
+	border: 1px solid #dcac72;
+	text-align: center;
+	margin:0.6rem auto ;
+	letter-spacing: 0.1rem;
+	line-height: 0.6rem;
+	background: #fdfbf8;
+	display: block;
+	padding-left: 0.04rem;
+}
+/*页脚*/
+.wrap .kong{
+	height: 0.7rem;
+}
+.wrap .footer{
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+    display: block;
+	font-family: "微软雅黑";
+	font-size: 0.14rem;
+	color: white;
+	height: 0.7rem;
+	text-align: center;
+	padding-right: 0.2rem;
+	line-height: 0.7rem;
+	background: #BBAB97;
+	padding: 0;
+}
+/*返回按钮*/
+.wrap .footer img{
+	width: 0.5rem;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	margin: auto 0;
+	left: 0.6rem;
+	cursor: pointer;
+}
+/*弹窗*/
+.wrap .blackscreen{
+	position: fixed;
+	z-index: 40;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.6);
+	display: none;
+}
+.wrap .blackscreen .whitescreen{
+	width: 100%;
+	height: 5rem;
+	background: white;
+	position: absolute;
+	top: 2.8rem;
+}
+.wrap .blackscreen .whitescreen hr{
+	height: 2px;
+	width: 96%;
+	margin: 0 auto;
+	background: -webkit-linear-gradient(left,#DDAD5F,#644109);
+	background: -moz-linear-gradient(left,#DDAD5F,#644109);
+	background: -o-linear-gradient(left,#DDAD5F,#644109);
+	background: linear-gradient(left,#DDAD5F,#644109);
+}
+.wrap .blackscreen .whitescreen  .close{
+	width: 0.3rem;
+	position:absolute;
+	top: 0.2rem;
+	right: 0.2rem;
+}
+.wrap .blackscreen .whitescreen h1{
+	text-align: center;
+	padding: 1.4rem 0 0.3rem;
+	color: #dba96c;
+	font-size: 0.36rem;
+	font-family: "微软雅黑";
+	letter-spacing:0.02rem ;
+}
+.wrap .blackscreen .whitescreen p{
+	
+	text-align: center;
+	color: #dba96c;
+	font-size: 0.3rem;
+	font-family: "微软雅黑";
+	letter-spacing:0.02rem ;
+}
+.wrap .blackscreen .whitescreen p span{
+	color: #b48a58;
+}
+.wrap .blackscreen .whitescreen p img{
+	width: 0.2rem;
+	position: relative;
+	/*top: -0.05rem;*/
+	margin-right: 0.06rem;
+}
+.wrap .blackscreen .whitescreen .tel{
+	color:#b48a58 ;
+	padding-top: 0.3rem;
+}
+.wrap .blackscreen .whitescreen .buttonxian{
+	position: absolute;
+	bottom: 0;
+	left:2% ;
+}

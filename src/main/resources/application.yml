@@ -65,8 +65,8 @@ logging:
   level:
     root: INFO
     com:
-     hpf:
-      manage:
+     gency:
+      subscribe:
        dao: DEBUG
       service: DEBUG
   file: ./logs/weixin_subscribe_server.log

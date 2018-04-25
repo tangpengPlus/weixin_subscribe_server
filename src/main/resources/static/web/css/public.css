@@ -1,0 +1,233 @@
+
+
+i{font-style: normal;}
+
+a { 
+  cursor: pointer;
+  color:#333;
+  text-decoration: none;
+  /*消除ie10灰色背景*/
+  background-color: transparent;
+  /*消除火狐虚线*/
+  outline: none;
+}
+
+img {
+  max-width: 100%;
+/*  cursor: pointer;*/
+  vertical-align: middle;
+  border: 0 none;
+}
+body,button,input,select,textarea {
+  outline: none;
+  resize: none;
+}
+button, input{
+  /* 让 input 和 button 一样高 */
+  line-height:normal;
+}
+
+figure{
+  margin: 0;
+  padding:0;
+}
+
+figure img{
+ width: 100%;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner{
+  padding:0;
+  border:0;
+}
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: none;
+}
+a,button,input{
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/* 统一上标和下标 */
+sub, sup{
+  font-size:75%;
+  line-height:0;
+  position:relative;
+}
+:root sub, :root sup{
+  vertical-align:baseline; /* for ie9 and other modern browsers */
+}
+sup{
+  top:-0.5em;
+}
+sub{
+  bottom:-0.25em;
+}
+strong {
+  font-weight: normal;
+}
+mark {
+  background: none;
+}
+input[type="checkbox"],
+input[type="radio"] {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
+}
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+
+
+
+/*原子类*/
+.wrapper:before,
+.wrapper:after,
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+}
+.wrapper:after,
+.clearfix:after {
+  clear: both;
+}
+.wrapper,
+.clearfix {
+  zoom: 1;
+}
+
+.Left{
+  float: left;
+}
+
+.Right{
+  float: right;
+}
+.contain{width: 100%; margin: 0 auto; position: relative;}
+.fixWidth{
+  width:100%;
+  position: relative;
+  margin-bottom: 0.4rem;
+}
+.contain {
+  text-align: center;
+}
+.contain .demo {
+	width: 6rem;
+	margin: 0 auto;
+}
+.contain .demo div{
+	font-family: "微软雅黑";
+  display: block;
+  width: 100%;
+  position: relative;
+  border-radius:0.2rem;
+  background: #FDFBF8;
+  border: 1px solid #dba96c;
+  margin-bottom: 0.2rem;
+  text-align: left;
+  font-size: 0.3rem;
+  color: #6e6b68;
+  line-height:0.6rem;
+  height: 0.6rem;
+  padding-left: 0.16rem;
+  letter-spacing: 0.04rem;
+}
+.contain .demo #trigger3:after,#trigger4:after{
+	content: "";
+	background:url(../img/down.png) no-repeat center;
+	background-size: 0.3rem;
+	display: block;
+	width: 0.3rem;
+	height: 0.3rem;
+	position: absolute;
+	right: 0.2rem;
+	top: 0.14rem;
+}
+.contain .demo #trigger6{
+	width:3.6rem;
+	color: #6e6b68;
+	float: left;
+	margin-bottom: 0.6rem;
+}
+.contain .demo #trigger7{
+	width:2.2rem;
+	font-weight: bold;
+	padding: 0;
+	color: #dcac72;
+	float: right;
+	letter-spacing: normal;
+	text-align: center;
+	margin-bottom: 0.6rem;
+	border-radius: 0.3rem;
+  background: #FDFBF8;
+  border: 1px solid #dba96c;
+  font-size: 0.3rem;
+  line-height:0.6rem;
+  height: 0.6rem;
+  letter-spacing: 0.04rem;
+}
+.contain .demo #trigger7:after{
+	content: "";
+	display: block;
+	clear: both;
+}
+.contain hr{
+	height: 2px;
+	width: 96%;
+	margin: 0 auto;
+	background: -webkit-linear-gradient(left,#DDAD5F,#644109);
+	background: -moz-linear-gradient(left,#DDAD5F,#644109);
+	background: -o-linear-gradient(left,#DDAD5F,#644109);
+	background: linear-gradient(left,#DDAD5F,#644109);
+	
+}
+/*按钮*/
+.contain  .subm{
+	font-family: "微软雅黑";
+  display: block;
+  width: 1.4rem;
+  margin: 0.3rem auto 0.4rem;
+  border-radius:0.3rem;
+  background: #FDFBF8;
+  border: 1px solid #dba96c;
+  margin-bottom: 0.2rem;
+  text-align: center;
+  font-size: 0.36rem;
+  font-weight: bold;
+  color: #dcac72;
+  padding: 0.06rem 0 0.06rem 0.06rem ;
+  
+  letter-spacing: 0.1rem;
+}
+.whiteBG {
+  background: white;
+}
+.fullHeight {
+  height: 100%;
+}
+.guideView:before {
+  display: none;
+}
+.center {
+  text-align: center;
+}
+.blue {
+  color: #1e83d3;
+}
+
+

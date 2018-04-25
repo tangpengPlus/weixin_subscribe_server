@@ -39,7 +39,9 @@ public class MyWebAppConfigurer extends WebMvcConfigurerAdapter{
 	        .excludePathPatterns("/system/admin/loginout")
 	        .excludePathPatterns("/css/**").excludePathPatterns("/js/**")
 	        .excludePathPatterns("/img/**").excludePathPatterns("/font/**")
-	        .excludePathPatterns("/fonts/**").excludePathPatterns("/assets/**");
+	        .excludePathPatterns("/fonts/**").excludePathPatterns("/assets/**")
+	        .excludePathPatterns("/web/**").excludePathPatterns("/webSocketServer/**")
+	        .excludePathPatterns("/sockjs/**").excludePathPatterns("/layer/**");
 	        //日志处理拦截器
 	        registry.addInterceptor(systemLogRecordInterceptor())
 	        .addPathPatterns("/**")
@@ -48,7 +50,9 @@ public class MyWebAppConfigurer extends WebMvcConfigurerAdapter{
 	        .excludePathPatterns("/system/admin/loginout")
 	        .excludePathPatterns("/css/**").excludePathPatterns("/js/**")
 	        .excludePathPatterns("/img/**").excludePathPatterns("/font/**")
-	        .excludePathPatterns("/fonts/**").excludePathPatterns("/assets/**");
+	        .excludePathPatterns("/fonts/**").excludePathPatterns("/assets/**")
+	        .excludePathPatterns("/web/**").excludePathPatterns("/webSocketServer/**")
+	        .excludePathPatterns("/sockjs/**").excludePathPatterns("/layer/**");
 	        super.addInterceptors(registry);
 	    }
 }

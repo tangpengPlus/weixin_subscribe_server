@@ -95,12 +95,16 @@ public class ShiroConfig {
 
 		Map<String, String> filterChainDefinitionMap = new LinkedHashMap<String, String>();
 		// 静态资源不用拦截
+		filterChainDefinitionMap.put("/layer/**", "anon");
 		filterChainDefinitionMap.put("/css/**", "anon");
 		filterChainDefinitionMap.put("/js/**", "anon");
 		filterChainDefinitionMap.put("/img/**", "anon");
 		filterChainDefinitionMap.put("/font/**", "anon");
 		filterChainDefinitionMap.put("/fonts/**", "anon");
 		filterChainDefinitionMap.put("/assets/**", "anon");
+		filterChainDefinitionMap.put("/web/**", "anon");
+		filterChainDefinitionMap.put("/webSocketServer/**", "anon");
+		filterChainDefinitionMap.put("/sockjs/**", "anon");
 		// 验证码配置
 		filterChainDefinitionMap.put("/system/admin/verificationcode", "anon");
 		//释放数据源监控

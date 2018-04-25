@@ -5,6 +5,8 @@
     <id column="order_no" jdbcType="BIGINT" property="orderNo" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="reg_id" jdbcType="BIGINT" property="regId" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="user_tel" jdbcType="VARCHAR" property="userTel" />
     <result column="state" jdbcType="TINYINT" property="state" />
     <result column="license_plate" jdbcType="VARCHAR" property="licensePlate" />
     <result column="number_of_people" jdbcType="INTEGER" property="numberOfPeople" />
@@ -13,12 +15,14 @@
     <result column="user_phone" jdbcType="VARCHAR" property="userPhone" />
     <result column="adviser_id" jdbcType="BIGINT" property="adviserId" />
     <result column="adviser_phone" jdbcType="VARCHAR" property="adviserPhone" />
+    <result column="adviser_name" jdbcType="VARCHAR" property="adviserName" />
     <result column="mark" jdbcType="VARCHAR" property="mark" />
     <result column="confirm_time" jdbcType="TIMESTAMP" property="confirmTime" />
   </resultMap>
   <sql id="Base_Column_List">
-    order_no, create_time, reg_id, state, license_plate, number_of_people, date_of_visit, 
-    morning_or_afternoon, user_phone, adviser_id, adviser_phone, mark, confirm_time
+    order_no, create_time, reg_id, user_name, user_tel, state, license_plate, number_of_people, 
+    date_of_visit, morning_or_afternoon, user_phone, adviser_id, adviser_phone, adviser_name, 
+    mark, confirm_time
   </sql>
   <insert id="insertSelective" parameterType="com.gency.subscribe.model.business.TraOrderBase">
     insert into tra_order_base
@@ -31,6 +35,12 @@
       </if>
       <if test="regId != null">
         reg_id,
+      </if>
+      <if test="userName != null">
+        user_name,
+      </if>
+      <if test="userTel != null">
+        user_tel,
       </if>
       <if test="state != null">
         state,
@@ -56,6 +66,9 @@
       <if test="adviserPhone != null">
         adviser_phone,
       </if>
+      <if test="adviserName != null">
+        adviser_name,
+      </if>
       <if test="mark != null">
         mark,
       </if>
@@ -72,6 +85,12 @@
       </if>
       <if test="regId != null">
         #{regId,jdbcType=BIGINT},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userTel != null">
+        #{userTel,jdbcType=VARCHAR},
       </if>
       <if test="state != null">
         #{state,jdbcType=TINYINT},
@@ -97,6 +116,9 @@
       <if test="adviserPhone != null">
         #{adviserPhone,jdbcType=VARCHAR},
       </if>
+      <if test="adviserName != null">
+        #{adviserName,jdbcType=VARCHAR},
+      </if>
       <if test="mark != null">
         #{mark,jdbcType=VARCHAR},
       </if>
@@ -113,6 +135,12 @@
       </if>
       <if test="regId != null">
         reg_id = #{regId,jdbcType=BIGINT},
+      </if>
+      <if test="userName != null">
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userTel != null">
+        user_tel = #{userTel,jdbcType=VARCHAR},
       </if>
       <if test="state != null">
         state = #{state,jdbcType=TINYINT},
@@ -138,6 +166,9 @@
       <if test="adviserPhone != null">
         adviser_phone = #{adviserPhone,jdbcType=VARCHAR},
       </if>
+      <if test="adviserName != null">
+        adviser_name = #{adviserName,jdbcType=VARCHAR},
+      </if>
       <if test="mark != null">
         mark = #{mark,jdbcType=VARCHAR},
       </if>
@@ -148,7 +179,7 @@
     where order_no = #{orderNo,jdbcType=BIGINT}
   </update>
   <sql id="sql_columns">
-    order_no,create_time,reg_id,state,license_plate,number_of_people,date_of_visit,morning_or_afternoon,user_phone,adviser_id,adviser_phone,mark,confirm_time
+    order_no,create_time,reg_id,user_name,user_tel,state,license_plate,number_of_people,date_of_visit,morning_or_afternoon,user_phone,adviser_id,adviser_phone,adviser_name,mark,confirm_time
   </sql>
   <sql id="sql_where">
     <if test="item !=null "> 
@@ -156,6 +187,8 @@
       <if test="null != item.orderNo and '' != item.orderNo">and order_no = #{item.orderNo}</if>
       <if test="null != item.createTime and '' != item.createTime">and create_time = #{item.createTime}</if>
       <if test="null != item.regId and '' != item.regId">and reg_id = #{item.regId}</if>
+      <if test="null != item.userName and '' != item.userName">and user_name = #{item.userName}</if>
+      <if test="null != item.userTel and '' != item.userTel">and user_tel = #{item.userTel}</if>
       <if test="null != item.state and '' != item.state">and state = #{item.state}</if>
       <if test="null != item.licensePlate and '' != item.licensePlate">and license_plate = #{item.licensePlate}</if>
       <if test="null != item.numberOfPeople">and number_of_people = #{item.numberOfPeople}</if>
@@ -164,6 +197,7 @@
       <if test="null != item.userPhone and '' != item.userPhone">and user_phone = #{item.userPhone}</if>
       <if test="null != item.adviserId and '' != item.adviserId">and adviser_id = #{item.adviserId}</if>
       <if test="null != item.adviserPhone and '' != item.adviserPhone">and adviser_phone = #{item.adviserPhone}</if>
+      <if test="null != item.adviserName and '' != item.adviserName">and adviser_name = #{item.adviserName}</if>
       <if test="null != item.mark and '' != item.mark">and mark = #{item.mark}</if>
       <if test="null != item.confirmTime and '' != item.confirmTime">and confirm_time = #{item.confirmTime}</if>
 	</where> 
@@ -176,12 +210,14 @@
     select <include refid="sql_columns" /> from tra_order_base <include refid="sql_where" /> limit 1
   </select>
   <select id="selectList" resultMap="BaseResultMap">
-    select <include refid="sql_columns" /> from tra_order_base <include refid="sql_where" />  order by orderNo desc
+    select <include refid="sql_columns" /> from tra_order_base <include refid="sql_where" />  order by order_no desc
   </select>
   <sql id="sql_save_columns">
     insert into tra_order_base(
 	  <if test="null != item.createTime"> create_time</if>
 	  <if test="null != item.regId">, reg_id</if>
+	  <if test="null != item.userName">, user_name</if>
+	  <if test="null != item.userTel">, user_tel</if>
 	  <if test="null != item.state">, state</if>
 	  <if test="null != item.licensePlate">, license_plate</if>
 	  <if test="null != item.numberOfPeople">, number_of_people</if>
@@ -190,6 +226,7 @@
 	  <if test="null != item.userPhone">, user_phone</if>
 	  <if test="null != item.adviserId">, adviser_id</if>
 	  <if test="null != item.adviserPhone">, adviser_phone</if>
+	  <if test="null != item.adviserName">, adviser_name</if>
 	  <if test="null != item.mark">, mark</if>
 	  <if test="null != item.confirmTime">, confirm_time</if>
 	) values
@@ -198,6 +235,8 @@
     (
 	  <if test="null != item.createTime"> #{item.createTime}</if>
 	  <if test="null != item.regId">, #{item.regId}</if>
+	  <if test="null != item.userName">, #{item.userName}</if>
+	  <if test="null != item.userTel">, #{item.userTel}</if>
 	  <if test="null != item.state">, #{item.state}</if>
 	  <if test="null != item.licensePlate">, #{item.licensePlate}</if>
 	  <if test="null != item.numberOfPeople">, #{item.numberOfPeople}</if>
@@ -206,6 +245,7 @@
 	  <if test="null != item.userPhone">, #{item.userPhone}</if>
 	  <if test="null != item.adviserId">, #{item.adviserId}</if>
 	  <if test="null != item.adviserPhone">, #{item.adviserPhone}</if>
+	  <if test="null != item.adviserName">, #{item.adviserName}</if>
 	  <if test="null != item.mark">, #{item.mark}</if>
 	  <if test="null != item.confirmTime">, #{item.confirmTime}</if>
 	)
@@ -223,6 +263,8 @@
  <set> 
       <if test="null != item.createTime">create_time = #{item.createTime},</if>
       <if test="null != item.regId">reg_id = #{item.regId},</if>
+      <if test="null != item.userName">user_name = #{item.userName},</if>
+      <if test="null != item.userTel">user_tel = #{item.userTel},</if>
       <if test="null != item.state">state = #{item.state},</if>
       <if test="null != item.licensePlate">license_plate = #{item.licensePlate},</if>
       <if test="null != item.numberOfPeople">number_of_people = #{item.numberOfPeople},</if>
@@ -231,6 +273,7 @@
       <if test="null != item.userPhone">user_phone = #{item.userPhone},</if>
       <if test="null != item.adviserId">adviser_id = #{item.adviserId},</if>
       <if test="null != item.adviserPhone">adviser_phone = #{item.adviserPhone},</if>
+      <if test="null != item.adviserName">adviser_name = #{item.adviserName},</if>
       <if test="null != item.mark">mark = #{item.mark},</if>
       <if test="null != item.confirmTime">confirm_time = #{item.confirmTime},</if>
 </set>	where order_no = #{item.orderNo}

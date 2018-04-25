@@ -174,6 +174,7 @@
 	[#break]
 	[/#if]
 	[/#list]
-	
+	 [#--加载通知--]
+    [#include "/base/socket.ftl"/]
 	
 	

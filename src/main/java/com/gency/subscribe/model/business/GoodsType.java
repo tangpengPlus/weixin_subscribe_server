@@ -1,5 +1,9 @@
 package com.gency.subscribe.model.business;
 
+import javax.validation.constraints.NotEmpty;
+
+import org.hibernate.validator.constraints.Length;
+
 import com.gency.subscribe.model.base.BaseModel;
 
 /**
@@ -19,6 +23,8 @@ public class GoodsType extends BaseModel {
      * 商品类别名称
      * 表字段 : goods_type.name
      */
+    @NotEmpty(message="商品类别名称不能为空")
+    @Length(max=50,message="商品类别名称太长")
     private String name;
 
     /**

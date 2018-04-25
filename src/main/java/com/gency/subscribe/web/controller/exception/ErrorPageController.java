@@ -85,7 +85,7 @@ public class ErrorPageController {
 	     * 时间: 2017年8月3日 下午2:05:19
 	     * void
 	     */
-	    @GetMapping(value="/500")
+	    @GetMapping(value="/err")
 	    public ModelAndView serverError(ModelAndView mv,HttpServletRequest request){
 	    	try {
 	    		ManageAdmin admin=AdminShiroUtil.getUserInfo();

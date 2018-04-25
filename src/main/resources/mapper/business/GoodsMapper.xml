@@ -6,10 +6,10 @@
     <result column="type_id" jdbcType="INTEGER" property="typeId" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="price" jdbcType="VARCHAR" property="price" />
-    <result column="is_delete" jdbcType="TINYINT" property="isDelete" />
+    <result column="isDelete" jdbcType="TINYINT" property="isDelete" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, type_id, name, price, is_delete
+    id, type_id, name, price, isDelete
   </sql>
   <insert id="insertSelective" parameterType="com.gency.subscribe.model.business.Goods">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
@@ -27,7 +27,7 @@
         price,
       </if>
       <if test="isDelete != null">
-        is_delete,
+        isDelete,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -58,13 +58,13 @@
         price = #{price,jdbcType=VARCHAR},
       </if>
       <if test="isDelete != null">
-        is_delete = #{isDelete,jdbcType=TINYINT},
+        isDelete = #{isDelete,jdbcType=TINYINT},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
   <sql id="sql_columns">
-    id,type_id,name,price,is_delete
+    id,type_id,name,price,isDelete
   </sql>
   <sql id="sql_where">
     <if test="item !=null "> 
@@ -73,7 +73,7 @@
       <if test="null != item.typeId">and type_id = #{item.typeId}</if>
       <if test="null != item.name and '' != item.name">and name = #{item.name}</if>
       <if test="null != item.price and '' != item.price">and price = #{item.price}</if>
-      <if test="null != item.isDelete and '' != item.isDelete">and is_delete = #{item.isDelete}</if>
+      <if test="null != item.isDelete and '' != item.isDelete">and isDelete = #{item.isDelete}</if>
 	</where> 
  </if>
   </sql>
@@ -84,14 +84,14 @@
     select <include refid="sql_columns" /> from goods <include refid="sql_where" /> limit 1
   </select>
   <select id="selectList" resultMap="BaseResultMap">
-    select <include refid="sql_columns" /> from goods <include refid="sql_where" />  order by id desc
+    select <include refid="sql_columns" /> from goods where isDelete =0  order by id desc
   </select>
   <sql id="sql_save_columns">
     insert into goods(
 	  <if test="null != item.typeId"> type_id</if>
 	  <if test="null != item.name">, name</if>
 	  <if test="null != item.price">, price</if>
-	  <if test="null != item.isDelete">, is_delete</if>
+	  <if test="null != item.isDelete">, isDelete</if>
 	) values
   </sql>
   <sql id="sql_save_values">
@@ -116,7 +116,7 @@
       <if test="null != item.typeId">type_id = #{item.typeId},</if>
       <if test="null != item.name">name = #{item.name},</if>
       <if test="null != item.price">price = #{item.price},</if>
-      <if test="null != item.isDelete">is_delete = #{item.isDelete},</if>
+      <if test="null != item.isDelete">isDelete = #{item.isDelete},</if>
 </set>	where id = #{item.id}
   </sql>
   <update id="update">

@@ -1,0 +1,134 @@
+
+*{
+	margin: 0;
+	padding: 0;
+	border:none;
+	box-sizing: border-box;
+	outline: none;
+}
+@font-face {
+	font-family:"Aba";
+	src: url("../font/Aba.ttf") format('truetype');
+}
+html{
+	font-size: 100px;
+}
+a{
+	text-decoration: none;
+}
+img{
+    border: none;
+    vertical-align: middle;
+    max-width: 100%;
+}
+.wrap{
+	overflow: hidden;
+	position: relative;
+	min-width: 3.2rem;
+	max-width: 7.5rem;
+	margin-left: auto;
+	margin-right: auto;
+}
+.wrap .topimg img{
+	width: 100%;
+}
+.wrap .topimg{
+	position: relative;
+}
+.wrap .topimg>p{
+	position: absolute;
+	text-align:center ;
+	width: 100%;
+	top: 1rem;
+}
+.wrap .topimg .biaoti{
+	width: 6rem;
+}
+.wrap .nav a{
+	display: block;
+	padding: 0.3rem 0 0.3rem;
+}
+.wrap .nav{
+	background: #FDFEFE;
+	position: fixed;
+	z-index: 10;
+	width:100%;
+	bottom: 0;
+	left: 0;
+}
+.wrap .nav a .box{
+	width:4.4rem;
+	margin: 0 auto;
+	display: block;
+}
+.wrap .nav a div{
+	display: inline-block;
+}
+.wrap .nav ul li{
+	list-style: none;
+}
+.wrap .nav ul li:nth-child(2n){
+	height: 2px;
+	width: 96%;
+	margin: 0 auto;
+	position: relative;
+	transition:  all 1s;
+	-webkit-transition:  all 1s;
+	-o-transition:  all 1s;
+	-moz-transition:  all 1s;
+	background: -webkit-linear-gradient(left,#DDAD5F,#644109);
+	background: -moz-linear-gradient(left,#DDAD5F,#644109);
+	background: -o-linear-gradient(left,#DDAD5F,#644109);
+	background: linear-gradient(left,#DDAD5F,#644109);
+}
+.xian_right{
+	right: -100%;
+}
+.xian_left{
+	left: -100%;
+}
+.wrap .nav a  p{
+	letter-spacing: .02rem;
+	font-family: "Aba";
+	font-size: 0.28rem;
+	color: #d2880f;
+}
+.wrap .nav a .zhong img{
+	width: 1.25rem;
+	
+}
+.wrap .nav a  p span{
+	position: relative;
+	top: -0.04rem;
+	left: 0.1rem;
+	width: 1.04rem;
+	display: inline-block;
+	height: 2px;
+	background: #F8E3C0;
+}
+.wrap .nav a .left{
+	width: 3.3rem;
+}
+.wrap .nav a .left p:nth-child(2){
+	padding:0.04rem 0;
+}
+.wrap .nav a .right img{
+	width: 0.73rem;
+	position: relative;
+	top: 0.06rem;
+}
+.wrap .nav  .footer{
+	position:relative;
+	display: block;
+	font-family: "微软雅黑";
+	font-size: 0.14rem;
+	color: white;
+	height: 0.6rem;
+	text-align: center;
+	padding-right: 0.2rem;
+	line-height: 0.6rem;
+	background: #BBAB97;
+	padding: 0;
+}
+
+
