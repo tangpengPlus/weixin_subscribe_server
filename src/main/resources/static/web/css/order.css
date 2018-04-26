@@ -133,6 +133,18 @@ img{
 .wrap  #trigger2::input-placeholder{
 	color: #6e6b68;
 }
+.wrap  #trigger3::-webkit-input-placeholder{
+	color: #6e6b68;
+}
+.wrap  #trigger4::-webkit-input-placeholder{
+	color: #6e6b68;
+}
+.wrap  #trigger4::input-placeholder{
+	color: #6e6b68;
+	}
+.wrap  #trigger3::input-placeholder{
+	color: #6e6b68;
+	}
 .wrap  #trigger1::input-placeholder{
 	color: #6e6b68;
 }

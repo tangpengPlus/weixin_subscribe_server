@@ -209,6 +209,12 @@
   <select id="selectOne" resultMap="BaseResultMap">
     select <include refid="sql_columns" /> from tra_order_base <include refid="sql_where" /> limit 1
   </select>
+  <select id="selectUserAd" resultMap="BaseResultMap">
+  	select <include refid="sql_columns" /> from tra_order_base where user_tel =#{user_tel} limit 1
+  </select>
+  <update id="updateOrderState">
+  update tra_order_base set state =1 where user_tel =#{user_tel}
+  </update>
   <select id="selectList" resultMap="BaseResultMap">
     select <include refid="sql_columns" /> from tra_order_base <include refid="sql_where" />  order by order_no desc
   </select>
@@ -216,7 +222,7 @@
     insert into tra_order_base(
 	  <if test="null != item.createTime"> create_time</if>
 	  <if test="null != item.regId">, reg_id</if>
-	  <if test="null != item.userName">, user_name</if>
+	  <if test="null != item.userName">user_name</if>
 	  <if test="null != item.userTel">, user_tel</if>
 	  <if test="null != item.state">, state</if>
 	  <if test="null != item.licensePlate">, license_plate</if>
@@ -235,7 +241,7 @@
     (
 	  <if test="null != item.createTime"> #{item.createTime}</if>
 	  <if test="null != item.regId">, #{item.regId}</if>
-	  <if test="null != item.userName">, #{item.userName}</if>
+	  <if test="null != item.userName">#{item.userName}</if>
 	  <if test="null != item.userTel">, #{item.userTel}</if>
 	  <if test="null != item.state">, #{item.state}</if>
 	  <if test="null != item.licensePlate">, #{item.licensePlate}</if>

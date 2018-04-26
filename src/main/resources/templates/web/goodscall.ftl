@@ -169,6 +169,14 @@
              e.preventDefault();
 			 history.go(-1);
 		 });
+		 
+		  //小标题高度
+		 var rheight=$(".right")
+		 for(var i=0;i<rheight.length;i++){
+		 	var heightr=rheight.eq(i).height();
+		 	rheight.eq(i).siblings(".left").height(heightr);
+		 	rheight.eq(i).siblings(".left").css('line-height',heightr+"px");
+		 }
     })
 			
     </script>

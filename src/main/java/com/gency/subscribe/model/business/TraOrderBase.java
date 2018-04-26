@@ -51,8 +51,20 @@ public class TraOrderBase extends BaseModel {
      * 表字段 : tra_order_base.license_plate
      */
     private String licensePlate;
+    
+    private String valideCode;//验证吗
+    
+    
 
-    /**
+    public String getValideCode() {
+		return valideCode;
+	}
+
+	public void setValideCode(String valideCode) {
+		this.valideCode = valideCode;
+	}
+
+	/**
      * 到访人数
      * 表字段 : tra_order_base.number_of_people
      */

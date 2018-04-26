@@ -10,7 +10,6 @@ import org.apache.shiro.web.mgt.CookieRememberMeManager;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.apache.shiro.web.servlet.SimpleCookie;
 import org.apache.shiro.web.session.mgt.DefaultWebSessionManager;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cache.ehcache.EhCacheCacheManager;
@@ -18,10 +17,8 @@ import org.springframework.cache.ehcache.EhCacheManagerFactoryBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
-
 import com.gency.subscribe.web.filter.shiro.AuthenticationFilter;
 import com.gency.subscribe.web.filter.shiro.KickoutSessionControlFilter;
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.shiro.cache.ehcache.EhCacheManager;
@@ -38,18 +35,6 @@ import org.apache.shiro.session.mgt.eis.JavaUuidSessionIdGenerator;
 public class ShiroConfig {
 
 	private static final Log log=LogFactory.getLog(ShiroConfig.class);
-	@Value("${spring.redis.host}")
-	private String host;
-
-	@Value("${spring.redis.port}")
-	private int port;
-
-	@Value("${spring.redis.timeout}")
-	private int timeout;
-
-	@Value("${spring.redis.password}")
-	private String password;
-	
 	/**
 	 *  
 	 * 作者:唐鹏

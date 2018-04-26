@@ -41,10 +41,8 @@
 	    	<div class="demo">
 	            <input id="trigger1" type="text" name=""  value="" placeholder="姓名" />
 	            <input id="trigger2" type="text" name=""  value="" placeholder="请填写车牌号码" />
-	            <!--<input id="trigger3" type="text" name=""  value="" placeholder="随行人数" />
-	            <input id="trigger4" type="text" name=""  value="" placeholder="预计到访日期" />-->
-	            <div id="trigger3">随行人数 </div>
-	            <div id="trigger4">预计到访日期</div>
+	            <div class="box"><input id="trigger3" type="text" name=""  value="" placeholder="随行人数" /><img src="img/down.png" /></div>
+	           <div class="box"><input id="trigger4" type="text" name=""  value="" placeholder="预计到访日期" /><img src="img/down.png"/></div>
 	            <input id="trigger5" type="text" name="" value="" placeholder="手机号输入"/>
 	            <input id="trigger6" type="text" name=""   placeholder="输入验证码"/>
 	            <div id="trigger7">获取验证码</div>
@@ -66,8 +64,8 @@
     			<hr />
     			<img src="${base}/web/img/close.png" class="close"/>
     			<h1>您已预约成功</h1>
-    			<p>置业顾问<span>李泽坤</span>为您服务</p>
-    			<p class="tel"><img src="${base}/web/img/tel.png"/>12345678923</p>
+    			<p>置业顾问<span id="advisname"></span>为您服务</p>
+    			<p class="tel" id="advistel"><img src="${base}/web/img/tel.png"/></p>
     			<hr class="buttonxian"/>
     		</div>
     	</div>
@@ -156,16 +154,11 @@
     							  if(data == "success"){
     							  
     							  }else{
-    							  	alert(data);
+    							  alert(data);
     							  }
     							}
-    					
-    					
-    					
     					});
     			
-	    			
-	    			
     			}else{
     				$(".hint").html("请输入号码！");
     				$(".hint").show();
@@ -183,6 +176,8 @@
     		$(".subm").click(function(){
     			var xianm=$("#trigger1").val();
     			var xianm1=$("#trigger2").val();
+    			var xianm2=$("#trigger3").val();
+    			var xianm3=$("#trigger4").val();
     			var xianm4=$("#trigger5").val();
     			var xianm5=$("#trigger6").val();
     			if(xianm!=""&&xianm!=" "){
@@ -192,7 +187,6 @@
 	    				if(xianm5!=""&&xianm5!=" "){
     						//提交是否跳转
     						$("#myform").submit(false);
-    						$(".blackscreen").show();
     					}else{
     				$(".hint").show();
     				$(".hint").html("请填写验证码");
@@ -235,22 +229,24 @@
     		 	$(".hint").hide();
     		 },1000);
     			}
-    			
     			$.ajax({
-    							url:"${base}/web/order/save",
-    							data:{"userName":xianm,"userTel":xianm4,"licensePlate":xianm1,"numberOfPeople":},
-    							dataType:"text",
-    							type:"post",
-    							success:function(data){
-    							  if(data == "success"){
-    							  
-    							  }else{
-    							  	alert(data);
-    							  }
-    							}
-    					
-    					
-    					
+						url:"${base}/web/order/save",
+						data:{"userName":xianm,"userTel":xianm4,"licensePlate":xianm1,"numberOfPeople":xianm2,"dateOfVisit":xianm3,"valideCode":xianm5},
+						dataType:"text",
+						type:"post",
+						success:function(data){
+						var data= JSON.parse(data);
+						var state = data.state;
+						var value = data.value;
+						var value2 = data.value2;
+						if(state =="false"){
+					     alert(value);
+						}else{
+							$("#advisname").html(value);
+							$("#advistel").html(value2);
+							$(".blackscreen").show();
+						}
+						}
     					});
     			
     		});

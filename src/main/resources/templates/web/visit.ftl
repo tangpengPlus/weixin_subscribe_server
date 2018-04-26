@@ -28,7 +28,7 @@
     	</div>
     	<img src="${base}/web/img/visition.png" class="title"/>
     	<div class="xian"></div>
-    	<input class="telnumber" type="text" name="" id="" value=""  placeholder="请输入预约登记时的手机号码"/>
+    	<input class="telnumber" type="text" name="" id="user_phone" value=""  placeholder="请输入预约登记时的手机号码"/>
     	<p>温馨提示：请您到达售楼部后在进行到访登记</p>
     	<div class="xian"></div>
     	<div class="callbtn">确认</div>
@@ -42,8 +42,8 @@
     			<hr />
     			<img src="${base}/web/img/close.png" class="close"/>
     			<h1>您已登记成功</h1>
-    			<p >置业顾问<span>李泽坤</span>为您服务</p>
-    			<p class="tel"><img src="${base}/web/img/tel.png"/><span>12345678923</span></p>
+    			<p >置业顾问<span id= "advisname"></span>为您服务</p>
+    			<p class="tel" id ="advistel"><img src="${base}/web/img/tel.png"/><span></span></p>
     			<hr class="buttonxian"/>
     		</div>
     	</div>
@@ -54,7 +54,32 @@
     <script type="text/javascript">
 	$(function(){
 		$(".callbtn").click(function(){
-			$(".blackscreen").show();
+			var phone = $("#user_phone").val();
+			var myreg=/^[1][3,4,5,7,8,9][0-9]{9}$/; 
+			if(!myreg.test(phone)){
+				alert("电话号码格式错误");
+				return;
+			}
+			$.ajax({
+				url:"${base}/web/order/confirm",
+				data:{"telPhone":phone},
+				dataType:"text",
+				type:"post",
+				success:function(data){
+					var data= JSON.parse(data);
+					var state = data.state;
+					var value1 = data.value1;
+					var value2 = data.value2;
+					if(state == "success"){
+						  $("#advisname").html(value1);
+						  $("#advistel").html(value2);
+						  $(".blackscreen").show();
+					}else{
+						alert(value1);
+					}
+				  
+				}
+		});
 		});
 		//关闭弹窗
 		$(".close").click(function(){

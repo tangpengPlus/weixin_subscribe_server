@@ -1,5 +1,7 @@
 package com.gency.subscribe.dao.business;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.gency.subscribe.dao.base.BaseMapper;
 import com.gency.subscribe.model.business.TraOrderBase;
 
@@ -17,4 +19,9 @@ public interface TraOrderBaseMapper extends BaseMapper<TraOrderBase> {
      * @param record
      */
     int updateByPrimaryKeySelective(TraOrderBase record);
+    
+    
+    TraOrderBase selectUserAd(@Param("user_tel")String user_tel);
+    
+    void updateOrderState(@Param("user_tel")String user_tel);
 }

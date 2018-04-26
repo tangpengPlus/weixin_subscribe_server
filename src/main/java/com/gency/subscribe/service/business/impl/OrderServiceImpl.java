@@ -17,5 +17,15 @@ public class OrderServiceImpl extends GenericServiceImp<TraOrderBase> implements
 	public BaseMapper<TraOrderBase> getDao() {
 		return traOrderBaseMapper;
 	}
+	@Override
+	public TraOrderBase selectUserAd(String user_tel) {
+		// TODO Auto-generated method stub
+		return traOrderBaseMapper.selectUserAd(user_tel);
+	}
+	@Override
+	public void updateOrderState(String user_tel) {
+		traOrderBaseMapper.updateOrderState(user_tel);
+		
+	}
 
 }

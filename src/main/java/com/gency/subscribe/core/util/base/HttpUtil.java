@@ -3,12 +3,23 @@ package com.gency.subscribe.core.util.base;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.io.PrintWriter;
+import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.Map;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.gency.subscribe.web.controller.system.AdminController;
+
 public class HttpUtil {
+	
+	private static final Log log =LogFactory.getLog(AdminController.class);
 	
 	public static String sendGet(String url, Map<String, String> parameters) {  
         String result = "";// 返回的结果  
@@ -138,5 +149,49 @@ public class HttpUtil {
 	            }
 	        }
 	        return result;
-	    }    
+	    }   
+	 
+	 
+	 public static void sendJson(String urls,JSONObject obj){
+		 
+		 String resp= null;
+         String query = obj.toString();
+         log.info("发送到URL的报文为：");
+         log.info(query);
+         try {
+             URL url = new URL(urls); //url地址
+
+             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+             connection.setDoInput(true);
+             connection.setDoOutput(true);
+             connection.setRequestMethod("POST");
+             connection.setUseCaches(false);
+             connection.setInstanceFollowRedirects(true);
+             connection.setRequestProperty("Content-Type","application/json");
+             connection.connect();
+
+             try (OutputStream os = connection.getOutputStream()) {
+                 os.write(query.getBytes("UTF-8"));
+             }
+
+             try (BufferedReader reader = new BufferedReader(
+                     new InputStreamReader(connection.getInputStream()))) {
+                 String lines;
+                 StringBuffer sbf = new StringBuffer();
+                 while ((lines = reader.readLine()) != null) {
+                     lines = new String(lines.getBytes(), "utf-8");
+                     sbf.append(lines);
+                 }
+                 log.info("返回来的报文："+sbf.toString());
+                 resp = sbf.toString();    
+                
+             }
+             connection.disconnect();
+
+         } catch (Exception e) {
+             e.printStackTrace();
+         }finally{
+             JSONObject json = (JSONObject)JSON.parse(resp);
+         }
+	 }
 }

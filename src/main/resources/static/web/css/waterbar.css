@@ -75,10 +75,10 @@ img{
 	text-align: center;
 	line-height:5.55rem ;
 }
-.wrap .box .box1 .right ul{
+/*.wrap .box .box1 .right ul{
 	overflow-y: auto;
 	height: 5.55rem;
-}
+}*/
 .wrap .box .right{
 	float: right;
 	width:80% ;
@@ -154,15 +154,15 @@ img{
 .wrap .box .box2{
 	overflow: hidden;
 }
-.wrap .box .box2 .left{
+/*.wrap .box .box2 .left{
 	height: 3rem;
 	line-height: 3rem;
 }
 .wrap .box .box2 .right ul{
 	height: 3rem;
 	overflow-y: auto;
-	/*line-height: 3rem;*/
-}
+	line-height: 3rem;
+}*/
 /*呼叫按钮*/
 .wrap .box .callbtn{
 	font-size: 0.36rem;

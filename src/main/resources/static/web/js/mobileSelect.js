@@ -95,8 +95,8 @@
 		    	}
 		    	if(_this.triggerDisplayData){
 		    		//点击确定按钮读取数据
-		    		_this.trigger.innerHTML = tempValue;
-//		    		_this.trigger.value= tempValue;
+//		    		_this.trigger.innerHTML = tempValue;
+		    		_this.trigger.value= tempValue;
 		    	}
 		    	_this.curIndexArr = _this.getIndexArr();
 		    	_this.curValue = _this.getCurValue();
